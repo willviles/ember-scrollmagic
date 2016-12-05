@@ -1,9 +1,22 @@
 {
   "name": "ember-scrollmagic",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "0.0.1",
+  "description": "An Ember addon for using ScrollMagic - the javascript library for magical scroll interactions.",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "scrollMagic",
+    "scroll",
+    "scrolling",
+    "animation",
+    "sticky",
+    "pin",
+    "fixed",
+    "scrollbar",
+    "scrub",
+    "sync",
+    "position",
+    "progress",
+    "parallax"
   ],
   "license": "MIT",
   "author": "",
@@ -47,6 +60,9 @@
     "node": ">= 0.12.0"
   },
   "ember-addon": {
-    "configPath": "tests/dummy/config"
+    "configPath": "tests/dummy/config",
+    "after": [
+      "ember-gsap"
+    ]
   }
 }
