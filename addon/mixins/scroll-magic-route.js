@@ -8,9 +8,8 @@ export default Ember.Mixin.create({
   scrollMagic: service(),
 
   activate() {
-    const opts = get(this, 'scrollMagicController');
+    const opts = get(this, 'scrollMagicController') || {};
     get(this, 'scrollMagic').addController(get(this, 'routeName'), opts);
-    console.log(get(this, 'scrollMagic.controllers'));
 
     this._super(...arguments);
   },
