@@ -24,13 +24,13 @@ module.exports = {
         app.import(app.bowerDirectory + '/scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js');
       }
 
-      app.import('vendor/scrollmagic-shim.js', {
-        exports: {
-          scrollmagic: ['default']
-        }
-      });
-
     }
+
+    app.import('vendor/scrollmagic-shim.js', {
+      exports: {
+        scrollmagic: ['default']
+      }
+    });
 
   },
 };

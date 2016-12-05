@@ -7,7 +7,7 @@ const {
   isEmpty,
   isPresent,
   computed: {
-    alias
+    reads
   },
   inject: {
     service
@@ -19,12 +19,12 @@ export default Ember.Service.extend({
   fastboot: service('fastboot'),
   routing: service('-routing'),
 
-  isFastboot: alias('fastboot.isFastboot'),
+  isFastBoot: reads('fastboot.isFastBoot'),
 
   controllers: Ember.A([]),
 
   addController(id, opts) {
-    if (get(this, 'isFastboot')) { return; }
+    if (get(this, 'isFastBoot')) { return; }
 
     let register = {
       id,
@@ -38,7 +38,7 @@ export default Ember.Service.extend({
   },
 
   destroyController(id) {
-    if (get(this, 'isFastboot')) { return; }
+    if (get(this, 'isFastBoot')) { return; }
 
     let controllers = get(this, 'controllers'),
         controller = this.getControllerRegistration(id);
@@ -72,7 +72,7 @@ export default Ember.Service.extend({
   },
 
   updateController(id) {
-    if (get(this, 'isFastboot')) { return; }
+    if (get(this, 'isFastBoot')) { return; }
 
     let controller = this.getController();
 
