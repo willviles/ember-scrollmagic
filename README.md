@@ -18,14 +18,21 @@ Then, you can install Ember ScrollMagic.
 
 ### Routes
 
-[ScrollMagic](https://github.com/janpaepke/ScrollMagic) uses the `Controller` [class](http://scrollmagic.io/docs/ScrollMagic.Controller.html) to manage animations attached to it in an array of `Scene` [classes](http://scrollmagic.io/docs/ScrollMagic.Scene.html). Ember ScrollMagic handles the creation and destroying of ScrollMagic controllers using a simple route mixin.
+Ember ScrollMagic handles the creation and destroying of ScrollMagic controllers using a simple route mixin. To pass options to the new ScrollMagic Controller, define the options in an object `scrollMagicController`.
 
 ```javascript
 import Ember from 'ember';
 import scrollMagicMixin from 'ember-scrollmagic/route-mixin';
 
 export default Ember.Route.extend(scrollMagicMixin, {
-  // ...
+
+  // Optional setup
+  scrollMagicController: {
+    globalSceneOptions: {
+      triggerHook: 'onLeave'
+    }
+  }
+
 });
 ```
 
