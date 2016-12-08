@@ -18,7 +18,7 @@ Then, you can install Ember ScrollMagic.
 
 ### Routes
 
-Ember ScrollMagic handles the creation and destroying of ScrollMagic controllers using a simple route mixin. To pass options to the new ScrollMagic Controller, define the options in an object `scrollMagicController`.
+Ember ScrollMagic handles the creation and removal of ScrollMagic controllers using a simple route mixin. To pass options to the new ScrollMagic Controller, define the options in an object `scrollMagicController`.
 
 ```javascript
 import Ember from 'ember';
@@ -43,7 +43,7 @@ import Ember from 'ember';
 import ScrollMagic from 'scrollmagic';
 import { TweenLite } from 'gsap';
 
-const { inject: { service }, get} = Ember;
+const { inject: { service }, get } = Ember;
 
 export default Ember.Component.extend({
   scrollMagic: service(),
@@ -67,7 +67,57 @@ export default Ember.Component.extend({
 
 ### Components
 
-It is possible to use Ember ScrollMagic inside scrollable components such as overlays and modals. More documentation will be added to detail this implementation pattern soon.
+It is possible to use Ember ScrollMagic inside scrollable components such as overlays and modals. Documentation is not yet complete.
+
+
+### Custom
+The `scrollMagic` service exposes some key functions to enable custom implementation of scroll controllers.
+
+#### Adding, Updating & Destroying a controller
+
+```javascript
+// scrollable-component.js
+export default Ember.Component.extend({
+  scrollMagic: service(),
+  
+  // Add
+  scrollController: Ember.on('init', function() {
+    get(this, 'scrollMagic').addController('YOUR_UNIQUE_ID', {
+      container: this.$()
+    });
+    
+  }),
+  
+  // Update
+  onChange: Ember.observes('change', function() {
+    get(this, 'scrollMagic').updateController('YOUR_UNIQUE_ID');
+    
+  }),
+  
+  // Destroy
+  willDestroyElement() {
+    this._super(...arguments);
+    get(this, 'scrollMagic').destroyController('YOUR_UNIQUE_ID');
+  }
+  
+})
+```
+
+#### Attaching scenes
+
+```javascript
+// animated-component.js
+export default Ember.Component.extend({
+  scrollMagic: service(),
+  
+  initScrollController: Ember.on('didInsertElement', function() {
+    const controller = get(this, 'scrollMagic').getController('YOUR_UNIQUE_ID');
+    
+    controller.addScene(/* GSAP Animation */);
+    
+  })
+})
+```
 
 ## Using ScrollMagic
 
