@@ -4,7 +4,6 @@ const { get, set, inject: { service }} = Ember;
 
 export default Ember.Mixin.create({
 
-  fastboot: service(),
   scrollMagic: service(),
 
   activate() {

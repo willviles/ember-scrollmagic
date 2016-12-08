@@ -6,9 +6,7 @@ const {
   set,
   isEmpty,
   isPresent,
-  computed: {
-    reads
-  },
+  computed,
   inject: {
     service
   }
@@ -16,10 +14,11 @@ const {
 
 export default Ember.Service.extend({
 
-  fastboot: service('fastboot'),
   routing: service('-routing'),
 
-  isFastBoot: reads('fastboot.isFastBoot'),
+  isFastBoot: computed(function() {
+    return typeof FastBoot !== 'undefined';
+  }),
 
   controllers: Ember.A([]),
 
