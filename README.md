@@ -4,7 +4,7 @@ Ember ScrollMagic is an Ember addon for using [ScrollMagic](https://github.com/j
 
 ## Installation
 
-Before installing ScrollMagic, you must install an animation library to use with it. ScrollMagic supports both [GSAP - Greensock Animation Platform](https://github.com/greensock/GreenSock-JS) and [VelocityJs] (https://github.com/julianshapiro/velocity).
+Before installing ScrollMagic, you must install an animation library to use with it. ScrollMagic supports [GSAP - Greensock Animation Platform](https://github.com/greensock/GreenSock-JS) for full scroll tweening and [VelocityJs] (https://github.com/julianshapiro/velocity) for simple animation triggers.
 
 Ember ScrollMagic currently supports just GSAP. Install [Ember GSAP](https://github.com/willviles/ember-gsap) first.
 
@@ -53,10 +53,10 @@ export default Ember.Component.extend({
     const scrollController = get(this, 'scrollMagic').getController();
 
     let scene = new ScrollMagic.Scene({
-      triggerElement: this.$()
+      triggerElement: get(this, 'element')
     });
 
-    scene.setTween(TweenLite.fromTo(this.$(), 1, { opacity: 0, opacity: 1}));
+    scene.setTween(TweenLite.fromTo(this.$(), 1, { opacity: 0 }, { opacity: 1 }));
 
     scrollController.addScene(scene);
 
@@ -65,13 +65,8 @@ export default Ember.Component.extend({
 });
 ```
 
-### Components
-
-It is possible to use Ember ScrollMagic inside scrollable components such as overlays and modals. Documentation is not yet complete.
-
-
 ### Custom
-The `scrollMagic` service exposes some key functions to enable custom implementation of scroll controllers.
+The `scrollMagic` service exposes some key functions to enable custom implementation of scroll controllers. You may like to implement this pattern when adding ScrollMagic to scrollable components such as overlays and modals.
 
 #### Adding, Updating & Destroying a controller
 
@@ -79,27 +74,27 @@ The `scrollMagic` service exposes some key functions to enable custom implementa
 // scrollable-component.js
 export default Ember.Component.extend({
   scrollMagic: service(),
-  
+
   // Add
   scrollController: Ember.on('init', function() {
     get(this, 'scrollMagic').addController('YOUR_UNIQUE_ID', {
-      container: this.$()
+      container: get(this, 'element')
     });
-    
+
   }),
-  
+
   // Update
   onChange: Ember.observes('change', function() {
     get(this, 'scrollMagic').updateController('YOUR_UNIQUE_ID');
-    
+
   }),
-  
+
   // Destroy
   willDestroyElement() {
     this._super(...arguments);
     get(this, 'scrollMagic').destroyController('YOUR_UNIQUE_ID');
   }
-  
+
 })
 ```
 
@@ -109,12 +104,12 @@ export default Ember.Component.extend({
 // animated-component.js
 export default Ember.Component.extend({
   scrollMagic: service(),
-  
+
   initScrollController: Ember.on('didInsertElement', function() {
     const controller = get(this, 'scrollMagic').getController('YOUR_UNIQUE_ID');
-    
+
     controller.addScene(/* GSAP Animation */);
-    
+
   })
 })
 ```
