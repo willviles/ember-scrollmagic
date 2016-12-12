@@ -25,6 +25,8 @@ export default Ember.Service.extend({
   addController(id, opts) {
     if (get(this, 'isFastBoot')) { return; }
 
+    opts = opts || {};
+
     let register = {
       id,
       _controller: new ScrollMagic.Controller(opts)
