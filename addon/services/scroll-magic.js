@@ -62,7 +62,7 @@ export default Ember.Service.extend({
   },
 
   getController(id) {
-    let controller = this.getControllerRegistration();
+    let controller = this.getControllerRegistration(id);
 
     if (isEmpty(controller)) { return; }
 
@@ -73,7 +73,7 @@ export default Ember.Service.extend({
   updateController(id) {
     if (get(this, 'isFastBoot')) { return; }
 
-    let controller = this.getController();
+    let controller = this.getController(id);
 
     if (isEmpty(controller)) { return; }
 
