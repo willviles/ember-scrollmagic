@@ -7,8 +7,12 @@ const {
   isEmpty,
   isPresent,
   computed,
+  on,
   inject: {
     service
+  },
+  run: {
+    debounce
   }
 } = Ember;
 
@@ -83,7 +87,23 @@ export default Ember.Service.extend({
       controller.update();
     });
 
-  }
+  },
+
+  windowResize: on('init', function() {
+    if (get(this, 'isFastBoot')) { return; }
+
+    Ember.$(window).bind('resize', () => {
+      debounce(this, '_updateOnResize', 150);
+    });
+
+  }),
+
+  _updateOnResize() {
+    get(this, 'controllers').forEach(({ _controller }) => {
+      _controller.update();
+    });
+
+  },
 
 
 });
