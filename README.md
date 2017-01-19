@@ -114,6 +114,16 @@ export default Ember.Component.extend({
 })
 ```
 
+### Resizing
+
+Every ScrollMagic controller will update itself on a window resize, with a debounce of 150ms. To manually update a ScrollMagic controller, simply do:
+
+```javascript
+let { _controller } = get(this, 'scrollMagic').getController('YOUR_UNIQUE_ID');
+
+_controller.update();
+```
+
 ## Using ScrollMagic
 
 Please refer to the [ScrollMagic API](http://scrollmagic.io/docs/index.html) for full documentation. For examples, ideas and inspiration of what to create with ScrollMagic, check out the [examples](http://scrollmagic.io/examples/).
