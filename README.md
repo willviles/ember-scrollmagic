@@ -124,6 +124,18 @@ let { _controller } = get(this, 'scrollMagic').getController('YOUR_UNIQUE_ID');
 _controller.update();
 ```
 
+### Indicators
+
+To include the indicator plugin, add the following to your `config/environment.js` file.
+
+```javascript
+ENV['ember-scrollmagic'] = {
+  indicators: true
+};
+```
+
+Then you can use `addIndicators` on a ScrollMagic scene or in a controller's `globalSceneOptions`.
+
 ## Using ScrollMagic
 
 Please refer to the [ScrollMagic API](http://scrollmagic.io/docs/index.html) for full documentation. For examples, ideas and inspiration of what to create with ScrollMagic, check out the [examples](http://scrollmagic.io/examples/).
