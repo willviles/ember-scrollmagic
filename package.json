@@ -1,6 +1,6 @@
 {
   "name": "ember-scrollmagic",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "description": "An Ember addon for using ScrollMagic - the javascript library for magical scroll interactions.",
   "keywords": [
     "ember-addon",
@@ -19,12 +19,15 @@
     "parallax"
   ],
   "license": "MIT",
-  "author": "",
+  "author": "Will Viles <will@vil.es>",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willviles/ember-scrollmagic.git"
+  },
   "scripts": {
     "build": "ember build",
     "start": "ember server",
