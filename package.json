@@ -1,6 +1,6 @@
 {
   "name": "ember-scrollmagic",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "An Ember addon for using ScrollMagic - the javascript library for magical scroll interactions.",
   "keywords": [
     "ember-addon",
