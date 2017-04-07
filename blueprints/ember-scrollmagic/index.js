@@ -1,8 +1,6 @@
-module.exports = {
-  normalizeEntityName: function() {
-  },
+/* eslint-env node:true */
+/* globals module */
 
-  afterInstall: function() {
-    return this.addBowerPackageToProject("scrollmagic", "~2.0.5");
-  }
+module.exports = {
+  normalizeEntityName: function() {}
 };
