@@ -1,7 +1,4 @@
 {
   "name": "ember-scrollmagic",
-  "dependencies": {
-    "scrollmagic": "~2.0.5",
-    "gsap": "~1.19.0"
-  }
+  "dependencies": {}
 }
