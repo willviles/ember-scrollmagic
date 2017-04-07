@@ -5,7 +5,7 @@ Ember ScrollMagic is an Ember addon for using [ScrollMagic](https://github.com/j
 
 ## Installation
 
-Before installing ScrollMagic, you must install an animation library to use with it. ScrollMagic supports [GSAP - Greensock Animation Platform](https://github.com/greensock/GreenSock-JS) for full scroll tweening and [VelocityJs] (https://github.com/julianshapiro/velocity) for simple animation triggers.
+Before installing ScrollMagic, you must install an animation library to use with it. ScrollMagic supports [GSAP - Greensock Animation Platform](https://github.com/greensock/GreenSock-JS) for full scroll tweening and [VelocityJs](https://github.com/julianshapiro/velocity) for simple animation triggers.
 
 Ember ScrollMagic currently supports just GSAP. Install [Ember GSAP](https://github.com/willviles/ember-gsap) first.
 
@@ -23,12 +23,14 @@ Ember ScrollMagic handles the creation and removal of ScrollMagic controllers us
 
 ```javascript
 import Ember from 'ember';
-import scrollMagicMixin from 'ember-scrollmagic/route-mixin';
+import ScrollMagicRouteMixin from 'ember-scrollmagic/route-mixin';
 
-export default Ember.Route.extend(scrollMagicMixin, {
+export default Ember.Route.extend(ScrollMagicRouteMixin, {
 
-  // Optional setup
   scrollMagicController: {
+    // Add any ScrollMagic controller options here.
+    // For example, change the triggerHook for all
+    // animations attached to a controller:
     globalSceneOptions: {
       triggerHook: 'onLeave'
     }
@@ -44,21 +46,18 @@ import Ember from 'ember';
 import ScrollMagic from 'scrollmagic';
 import { TweenLite } from 'gsap';
 
-const { inject: { service }, get } = Ember;
-
 export default Ember.Component.extend({
-  scrollMagic: service(),
+  scrollMagic: Ember.inject.service(),
 
   createScene: Ember.on('didInsertElement', function() {
 
-    const scrollController = get(this, 'scrollMagic').getController();
-
-    let scene = new ScrollMagic.Scene({
-      triggerElement: get(this, 'element')
+    const scrollController = this.get('scrollMagic').getController();
+    const scene = new ScrollMagic.Scene({
+      triggerElement: this.element
     });
+    const tween = TweenLite.fromTo(this.$(), 1, { opacity: 0 }, { opacity: 1 });
 
-    scene.setTween(TweenLite.fromTo(this.$(), 1, { opacity: 0 }, { opacity: 1 }));
-
+    scene.setTween(tween);
     scrollController.addScene(scene);
 
   })
@@ -74,26 +73,26 @@ The `scrollMagic` service exposes some key functions to enable custom implementa
 ```javascript
 // scrollable-component.js
 export default Ember.Component.extend({
-  scrollMagic: service(),
+  scrollMagic: Ember.inject.service(),
 
   // Add
   scrollController: Ember.on('init', function() {
-    get(this, 'scrollMagic').addController('YOUR_UNIQUE_ID', {
-      container: get(this, 'element')
+    this.get('scrollMagic').addController('YOUR_UNIQUE_ID', {
+      container: this.element
     });
 
   }),
 
   // Update
-  onChange: Ember.observes('change', function() {
-    get(this, 'scrollMagic').updateController('YOUR_UNIQUE_ID');
+  onChange: Ember.observer('change', function() {
+    this.get('scrollMagic').updateController('YOUR_UNIQUE_ID');
 
   }),
 
   // Destroy
   willDestroyElement() {
     this._super(...arguments);
-    get(this, 'scrollMagic').destroyController('YOUR_UNIQUE_ID');
+    this.get('scrollMagic').destroyController('YOUR_UNIQUE_ID');
   }
 
 })
@@ -104,11 +103,10 @@ export default Ember.Component.extend({
 ```javascript
 // animated-component.js
 export default Ember.Component.extend({
-  scrollMagic: service(),
+  scrollMagic: Ember.inject.service(),
 
   initScrollController: Ember.on('didInsertElement', function() {
-    const controller = get(this, 'scrollMagic').getController('YOUR_UNIQUE_ID');
-
+    const controller = this.get('scrollMagic').getController('YOUR_UNIQUE_ID');
     controller.addScene(/* GSAP Animation */);
 
   })
@@ -120,7 +118,7 @@ export default Ember.Component.extend({
 Every ScrollMagic controller will update itself on a window resize, with a debounce of 150ms. To manually update a ScrollMagic controller, simply do:
 
 ```javascript
-let { _controller } = get(this, 'scrollMagic').getController('YOUR_UNIQUE_ID');
+let { _controller } = this.get('scrollMagic').getController('YOUR_UNIQUE_ID');
 
 _controller.update();
 ```
