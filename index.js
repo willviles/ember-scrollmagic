@@ -13,10 +13,9 @@ module.exports = {
 
     this.addonConfig = this.app.project.config(app.env)['ember-scrollmagic'] || {};
 
+    const vendor = this.treePaths.vendor;
+
     if (!isFastBoot()) {
-
-      const vendor = this.treePaths.vendor;
-
       // Main modules
       app.import(vendor + '/scrollmagic/ScrollMagic.js');
       app.import(vendor + '/scrollmagic/plugins/animation.gsap.js');
@@ -26,14 +25,14 @@ module.exports = {
         app.import(vendor + '/scrollmagic/plugins/debug.addIndicators.js');
       }
 
-      // Expose `import` via a shim
-      app.import('vendor/scrollmagic-shim.js', {
-        exports: {
-          scrollmagic: ['default']
-        }
-      });
-
     }
+
+    // Expose `import` via a shim
+    app.import('vendor/scrollmagic-shim.js', {
+      exports: {
+        scrollmagic: ['default']
+      }
+    });
 
     return this._super.included.apply(this, arguments);
   },
