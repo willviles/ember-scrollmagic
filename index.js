@@ -1,30 +1,31 @@
-/* eslint node: true */
+/* eslint-env node */
 'use strict';
 
-var Funnel = require('broccoli-funnel');
-var mergeTrees = require('broccoli-merge-trees');
-var VersionChecker = require('ember-cli-version-checker');
-var path = require('path');
+const Funnel = require('broccoli-funnel');
+const mergeTrees = require('broccoli-merge-trees');
+const map = require('broccoli-stew').map;
+const path = require('path');
 
 module.exports = {
   name: 'ember-scrollmagic',
 
   included(app) {
+    if (typeof app.import !== 'function' && app.app) {
+      app = app.app;
+    }
+    this.app = app;
 
     this.addonConfig = this.app.project.config(app.env)['ember-scrollmagic'] || {};
 
     const vendor = this.treePaths.vendor;
 
-    if (!isFastBoot()) {
-      // Main modules
-      app.import(vendor + '/scrollmagic/ScrollMagic.js');
-      app.import(vendor + '/scrollmagic/plugins/animation.gsap.js');
+    // Main modules
+    app.import(vendor + '/scrollmagic/ScrollMagic.js');
+    app.import(vendor + '/scrollmagic/plugins/animation.gsap.js');
 
-      // Add indicators
-      if (this.addonConfig.indicators) {
-        app.import(vendor + '/scrollmagic/plugins/debug.addIndicators.js');
-      }
-
+    // Add indicators
+    if (this.addonConfig.indicators) {
+      app.import(vendor + '/scrollmagic/plugins/debug.addIndicators.js');
     }
 
     // Expose `import` via a shim
@@ -52,19 +53,12 @@ module.exports = {
 };
 
 function moduleToFunnel(moduleName, destination) {
-  destination = destination || moduleName;
-  return new Funnel(resolveModulePath(moduleName), {
-    destDir: destination
+  let tree = new Funnel(resolveModulePath(moduleName), {
+    destDir: destination || moduleName
   });
+  return map(tree, (content) => `if (typeof FastBoot === 'undefined') { ${content} }`);
 }
 
 function resolveModulePath(moduleName) {
   return path.dirname(require.resolve(moduleName));
-}
-
-// Checks to see whether this build is targeting FastBoot. Note that we cannot
-// check this at boot time--the environment variable is only set once the build
-// has started, which happens after this file is evaluated.
-function isFastBoot() {
-  return process.env.EMBER_CLI_FASTBOOT === 'true';
 }
