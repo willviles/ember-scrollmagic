@@ -1,3 +1,5 @@
+<img src="https://dl.dropboxusercontent.com/u/10491474/github/ember-scrollmagic.png" width="auto" height="70">
+
 Ember ScrollMagic [![npm](https://img.shields.io/npm/v/ember-scrollmagic.svg)](https://www.npmjs.com/package/ember-scrollmagic)
 ======
 
