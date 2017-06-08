@@ -138,3 +138,7 @@ Then you can use `addIndicators` on a ScrollMagic scene or in a controller's `gl
 ## Using ScrollMagic
 
 Please refer to the [ScrollMagic API](http://scrollmagic.io/docs/index.html) for full documentation. For examples, ideas and inspiration of what to create with ScrollMagic, check out the [examples](http://scrollmagic.io/examples/).
+
+## Fastboot
+
+Ember ScrollMagic >=0.2.0 and [Ember GSAP](https://github.com/willviles/ember-gsap) >=0.3.0 are fully compatible with all versions of [Ember CLI Fastboot](https://github.com/ember-fastboot/ember-cli-fastboot).
