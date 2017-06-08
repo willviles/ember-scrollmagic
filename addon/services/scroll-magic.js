@@ -3,9 +3,7 @@ import ScrollMagic from 'scrollmagic';
 
 const {
   get,
-  set,
   isEmpty,
-  isPresent,
   computed,
   on,
   inject: {
