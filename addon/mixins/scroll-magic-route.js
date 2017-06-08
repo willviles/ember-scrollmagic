@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const { get, set, inject: { service }} = Ember;
+const { get, inject: { service }} = Ember;
 
 export default Ember.Mixin.create({
 
