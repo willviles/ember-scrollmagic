@@ -2,5 +2,13 @@
 /* globals module */
 
 module.exports = {
-  normalizeEntityName: function() {}
+  normalizeEntityName: function() {},
+
+  afterInstall(/*options*/) {
+    return this.addPackagesToProject(
+      [
+        { name: 'ember-gsap', target: 'latest' }
+      ]
+    );
+  }
 };
