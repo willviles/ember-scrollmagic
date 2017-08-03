@@ -1,9 +1,10 @@
 /* eslint-env node */
 'use strict';
 
+const BroccoliDebug = require('broccoli-debug');
 const Funnel = require('broccoli-funnel');
 const mergeTrees = require('broccoli-merge-trees');
-const map = require('broccoli-stew').map;
+const fastbootTransform = require('fastboot-transform');
 const path = require('path');
 
 module.exports = {
@@ -39,13 +40,22 @@ module.exports = {
   },
 
   treeForVendor(vendorTree) {
-    var trees = [];
+    let debugTree = BroccoliDebug.buildDebugCallback(this.name),
+        trees = [];
 
     if (vendorTree) {
-      trees.push(vendorTree);
+      trees.push(
+        debugTree(vendorTree, 'vendorTree')
+      );
     }
 
-    trees.push(moduleToFunnel('scrollmagic'));
+    let js = fastbootTransform(
+      moduleToFunnel('scrollmagic')
+    );
+
+    trees.push(
+      debugTree(js, 'js')
+    );
 
     return mergeTrees(trees);
   },
@@ -53,10 +63,9 @@ module.exports = {
 };
 
 function moduleToFunnel(moduleName, destination) {
-  let tree = new Funnel(resolveModulePath(moduleName), {
+  return new Funnel(resolveModulePath(moduleName), {
     destDir: destination || moduleName
   });
-  return map(tree, (content) => `if (typeof FastBoot === 'undefined') { ${content} }`);
 }
 
 function resolveModulePath(moduleName) {
