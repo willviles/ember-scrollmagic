@@ -1,4 +1,4 @@
-<img src="https://dl.dropboxusercontent.com/u/10491474/github/ember-scrollmagic.png" width="auto" height="70">
+<img src="https://user-images.githubusercontent.com/2046935/30335364-0c508374-97da-11e7-8552-6a5a6e6fa820.png" width="auto" height="70">
 
 Ember ScrollMagic ![Download count all time](https://img.shields.io/npm/dt/ember-scrollmagic.svg) [![npm](https://img.shields.io/npm/v/ember-scrollmagic.svg)](https://www.npmjs.com/package/ember-scrollmagic)
 ======
