@@ -24,9 +24,36 @@ module.exports = function(environment) {
     }
   };
 
+  // @addon Ember ScrollMagic
+  // @url https://github.com/willviles/ember-scrollmagic
+
   ENV['ember-scrollmagic'] = {
     indicators: true
   };
+
+  // @addon Ember CLI Markdown Resolver
+  // @url https://github.com/willviles/ember-cli-markdown-resolver
+
+  ENV['ember-cli-markdown-resolver'] = {
+    folders: {
+      guides: 'app/guides'
+    }
+  };
+
+  // @addon Ember Code Prettify
+  // @url https://github.com/willviles/ember-code-prettify
+
+  ENV['ember-code-prettify'] = {
+    languages: ['css', 'yaml'],
+    skin: 'desert'
+  };
+
+  // @addon Ember CLI Google Fonts
+  // @url https://github.com/damiencaselli/ember-cli-google-fonts
+
+  ENV['googleFonts'] = [
+    'Overpass:300,400,800'
+  ];
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;

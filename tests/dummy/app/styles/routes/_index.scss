@@ -1,0 +1,11 @@
+[data-route="index"] {
+  [data-section="header"] {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+
+    .lead-image {
+      max-width: 400px;
+    }
+  }
+}
