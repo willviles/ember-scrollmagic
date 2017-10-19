@@ -1,0 +1,155 @@
+{{#unless hide}}
+
+  {{#ui-section name="header" padding="md"}}
+    <div class="container">
+      <h1 class="font-header">{{example.title}}</h1>
+      <div class="row">
+        <div class="col xs12 md10 lg8 l6">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid ergo attinet gloriose loqui, nisi constanter loquare? Haec quo modo conveniant, non sane intellego.
+          </p>
+          <p>
+            Scroll down to check it out...
+          </p>
+        </div>
+      </div>
+    </div>
+  {{/ui-section}}
+
+  {{#ui-section name="fade" padding="xl"}}
+    <div class="container">
+      <div class="row">
+        <div class="col xs12 md10 lg8 l6">
+          {{#scrollmagic-animated animation='fade'}}
+            <h3 class="font-header">Fade</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid ergo attinet gloriose loqui, nisi constanter loquare? Haec quo modo conveniant, non sane intellego.
+            </p>
+          {{/scrollmagic-animated}}
+        </div>
+      </div>
+    </div>
+  {{/ui-section}}
+
+  {{#ui-section name="fade" padding="xl"}}
+    <div class="container">
+      <div class="row">
+        <div class="col xs12 md10 lg8 l6">
+          {{#scrollmagic-animated reverse=false animation='fade'}}
+            <h3 class="font-header">Using reverse: false</h3>
+            <p>
+              Once you've scrolled past this section, it won't animate again...
+            </p>
+          {{/scrollmagic-animated}}
+        </div>
+      </div>
+    </div>
+  {{/ui-section}}
+
+  {{#ui-section name="toggle" padding="xl"}}
+    <div class="container">
+
+      <div class="row">
+        <div class="col xs12 md10 lg8 l6">
+          {{#scrollmagic-toggle triggerHook="onCenter" duration=0 toggleClasses='color-blue'}}
+            <h3 class="font-header">Toggle Classes</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid ergo attinet gloriose loqui, nisi constanter loquare? Haec quo modo conveniant, non sane intellego.
+            </p>
+          {{/scrollmagic-toggle}}
+        </div>
+      </div>
+    </div>
+  {{/ui-section}}
+
+  {{#ui-section name="indicators" padding="xl"}}
+    <div class="container">
+
+      <div class="row">
+        <div class="col xs12 md10 lg8 l6">
+          {{#scrollmagic-animated
+            animation='fade'
+            duration='50%'
+            indicators=(hash
+              name='Check out these indicators!'
+              colorStart='#1682fc'
+              colorEnd='#1682fc'
+              colorTrigger='#1682fc'
+            )
+          }}
+            <h3 class="font-header">Indicators</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid ergo attinet gloriose loqui, nisi constanter loquare? Haec quo modo conveniant, non sane intellego.
+            </p>
+          {{/scrollmagic-animated}}
+        </div>
+      </div>
+    </div>
+
+  {{/ui-section}}
+
+  {{#ui-section name="dynamic-properties" padding="xl"}}
+    <div class="container">
+
+      <div class="row">
+        <div class="col xs12 md10 lg8 l6">
+          {{#scrollmagic-animated
+            animation='fade'
+            duration=(if extendedDuration '66%' '33%')
+            indicators=(hash
+              name='Watch the duration change...'
+              colorStart='#1682fc'
+              colorEnd='#1682fc'
+              colorTrigger='#1682fc'
+            )}}
+            <h3 class="font-header">Dynamic Properties</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid ergo attinet gloriose loqui, nisi constanter loquare? Haec quo modo conveniant, non sane intellego.
+            </p>
+
+            {{#ui-button click=(toggle 'extendedDuration' this) bg="blue" color="white" padding="sm" inline=true}}
+              {{if extendedDuration 'Duration: 1/3 Viewport' 'Duration: 2/3 Viewport'}}
+            {{/ui-button}}
+          {{/scrollmagic-animated}}
+
+        </div>
+      </div>
+    </div>
+  {{/ui-section}}
+
+  {{#ui-section padding="xl"}}
+    <div class="container">
+      <div class="row">
+        <div class="col xs12 md10 lg8 xl6">
+          <h3 class="font-header">Component Lifecycle Hooks</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quarum ambarum rerum cum medicinam pollicetur, luxuriae licentiam pollicetur. Cum autem in quo sapienter dicimus, id a primo rectissime dicitur. Duo Reges: constructio interrete. Qua tu etiam inprudens utebare non numquam.
+          </p>
+          {{#ui-button click=(toggle 'hide' this) bg="blue" color="white" padding="sm" inline=true}}
+            {{if hide 'Show All Animations!' 'Hide All Animations!'}}
+          {{/ui-button}}
+        </div>
+      </div>
+    </div>
+  {{/ui-section}}
+
+{{else}}
+  {{#ui-section padding="md"}}
+    <div class="container">
+      <div class="row">
+        <div class="col xs12 md10 lg8 l6">
+          <h3 class="font-header">You've Hidden Everything!</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid ergo attinet gloriose loqui, nisi constanter loquare? Haec quo modo conveniant, non sane intellego.
+          </p>
+          <p>
+            Everything will be reinstantiated properly.
+          </p>
+          {{#ui-button click=(toggle 'hide' this) bg="blue" color="white" padding="sm" inline=true}}
+            {{if hide 'Show All Animations!' 'Hide All Animations!'}}
+          {{/ui-button}}
+        </div>
+      </div>
+    </div>
+  {{/ui-section}}
+{{/unless}}

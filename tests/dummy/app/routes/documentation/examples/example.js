@@ -27,7 +27,12 @@ export default Route.extend({
 
   renderTemplate(controller, model) {
     let exampleSlug = get(model, 'example.slug');
-    this.render(`documentation.examples.partials.${exampleSlug}`);
+
+    this.render(`documentation.examples.templates.${exampleSlug}`);
+    this.render(`documentation.examples.partials.next-example`, {
+      controller,
+      outlet: 'next-example'
+    })
   }
 
 })
