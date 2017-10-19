@@ -2193,6 +2193,12 @@ ember-ajax@^3.0.0:
   dependencies:
     ember-cli-babel "^6.0.0"
 
+ember-app-scheduler@^0.2.0:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/ember-app-scheduler/-/ember-app-scheduler-0.2.1.tgz#4af70ce7b4d5792a96eff46c0c2f4a737ec3ad63"
+  dependencies:
+    ember-cli-babel "^6.3.0"
+
 ember-cli-app-version@^2.0.0:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/ember-cli-app-version/-/ember-cli-app-version-2.0.2.tgz#aaeede608e92fae6c2e11f63d28a373c1cc3f070"
@@ -2753,6 +2759,14 @@ ember-router-generator@^1.0.0, ember-router-generator@^1.2.3:
   resolved "https://registry.yarnpkg.com/ember-router-generator/-/ember-router-generator-1.2.3.tgz#8ed2ca86ff323363120fc14278191e9e8f1315ee"
   dependencies:
     recast "^0.11.3"
+
+ember-router-scroll@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/ember-router-scroll/-/ember-router-scroll-0.4.0.tgz#df833738471bc854c76fc8620853563f275e649f"
+  dependencies:
+    ember-app-scheduler "^0.2.0"
+    ember-cli-babel "^6.6.0"
+    ember-getowner-polyfill "^2.0.1"
 
 ember-source@~2.16.0:
   version "2.16.0"
