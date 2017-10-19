@@ -1,7 +1,39 @@
-{{link-to 'Basic Animations' 'documentation.examples.example' 'basic-animations'}}
-{{link-to 'Parallax Sections' 'documentation.examples.example' 'parallax-sections'}}
-{{link-to 'Section Wipes' 'documentation.examples.example' 'section-wipes'}}
-{{link-to 'Section Slides' 'documentation.examples.example' 'section-slides'}}
-{{link-to 'Pinned Navigation' 'documentation.examples.example' 'pinned-navigation'}}
-{{link-to 'Inside Component' 'documentation.examples.example' 'inside-component'}}
-{{link-to 'Horizontal Scrolling' 'documentation.examples.example' 'horizontal-scrolling'}}
+{{#ui-section name="examples-list" padding="xs"}}
+  <div class="container">
+    {{#if examples}}
+      <ul class="row center-xs around-xs">
+        {{#each examples as | example i |}}
+          <li class="col xs12 md6 lg4">
+            {{#ui-panel depth="xs" depthHover="md"}}
+
+              <div class="header-container">
+                {{#link-to 'documentation.examples.example' example.slug}}
+                  <h5 class="font-header">
+                    {{add i 1}}. {{example.title}}
+                  </h5>
+                {{/link-to}}
+              </div>
+
+              <div class="description-container">
+                <p>
+                  {{example.description}}
+                </p>
+              </div>
+
+              <div class="button-container">
+                {{ui-button-link-to 'View' 'documentation.examples.example' example.slug
+                    bg="blue"
+                    color="white"
+                    padding="sm"
+                    depthHover="md"
+                    rounded=false}}
+              </div>
+
+            {{/ui-panel}}
+
+          </li>
+        {{/each}}
+      </ul>
+    {{/if}}
+  </div>
+{{/ui-section}}

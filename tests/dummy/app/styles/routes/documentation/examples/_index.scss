@@ -1,0 +1,25 @@
+[data-route="documentation.examples.index"] {
+  [data-section="examples-list"] {
+    ul {
+      display: flex;
+      align-items: stretch;
+      li {
+        display: flex;
+        & > .panel {
+          display: flex;
+          flex-direction: column;
+          margin: 1rem 0;
+          .header-container {
+            padding: 2rem 0 1rem 0;
+          }
+          .description-container {
+            flex-grow: 1;
+            p {
+              margin: 0 2rem 1rem 2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
