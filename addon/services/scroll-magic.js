@@ -1,107 +1,91 @@
-import Ember from 'ember';
+import Service from '@ember/service';
+import { getOwner } from '@ember/application';
+import { warn } from '@ember/debug';
+import { default as EmberObject, computed, get, set } from '@ember/object';
+import { scheduleOnce } from '@ember/runloop';
+
+import { task, timeout } from 'ember-concurrency';
+
 import ScrollMagic from 'scrollmagic';
+import $ from 'jquery';
 
-const {
-  get,
-  isEmpty,
-  computed,
-  on,
-  inject: {
-    service
-  },
-  run: {
-    debounce
-  }
-} = Ember;
+export default Service.extend({
 
-export default Ember.Service.extend({
-
-  routing: service('-routing'),
+  fastboot: computed(function() {
+    let owner = getOwner(this);
+    return owner.lookup('service:fastboot');
+  }),
 
   isFastBoot: computed(function() {
-    return typeof FastBoot !== 'undefined';
+    return get(this, 'fastboot.isFastBoot') === true;
   }),
 
-  controllers: Ember.A([]),
-
-  addController(id, opts) {
-    if (get(this, 'isFastBoot')) { return; }
-
-    opts = opts || {};
-
-    let register = {
-      id,
-      _controller: new ScrollMagic.Controller(opts)
-    };
-
-    get(this, 'controllers').pushObject(register);
-
-    return register.controller;
-
+  init() {
+    this._super(...arguments);
+    set(this, 'registry', EmberObject.create({}));
+    this.addResizeHandler();
   },
 
-  destroyController(id) {
-    if (get(this, 'isFastBoot')) { return; }
-
-    let controllers = get(this, 'controllers'),
-        controller = this.getControllerRegistration(id);
-
-    controller._controller.destroy();
-    controllers.removeObject(controller);
-
+  willDestroy() {
+    this._super(...arguments);
+    this.removeResizeHandler();
   },
 
-  getControllerRegistration(id) {
-    let controllers = get(this, 'controllers');
-
-    if (isEmpty(id)) {
-      id = get(this, 'routing.currentPath');
-    }
-
-    let controller = controllers.findBy('id', id);
-    if (isEmpty(controller)) { return; }
-
+  addController(id = `application`, opts = {}) {
+    if (get(this, 'isFastBoot')) { return; }
+    let controller = new ScrollMagic.Controller(opts);
+    set(this, `registry.${id}`, controller);
     return controller;
-
   },
 
-  getController(id) {
-    let controller = this.getControllerRegistration(id);
-
-    if (isEmpty(controller)) { return; }
-
-    return controller._controller;
-
-  },
-
-  updateController(id) {
+  getController(id = `application`) {
     if (get(this, 'isFastBoot')) { return; }
+    return get(this, `registry.${id}`);
+  },
 
-    let controller = this.getController(id);
-
-    if (isEmpty(controller)) { return; }
-
-    Ember.run.scheduleOnce('afterRender', () => {
+  updateController(id = `application`) {
+    if (get(this, 'isFastBoot')) { return; }
+    let controller = get(this, `registry.${id}`);
+    if (!controller) {
+      let msg = `Cannot update ScrollMagic controller - not registered.`,
+          msgid = `scrollmagic-controller-not-registered`
+      return warn(msg, { id: msgid });
+    }
+    scheduleOnce('afterRender', () => {
       controller.update();
     });
-
   },
 
-  windowResize: on('init', function() {
+  updateControllers: task(function* () {
+    yield timeout(200);
+    let registry = get(this, 'registry');
+    Object.keys(registry).forEach(id => {
+      this.updateController(id);
+    });
+  }).restartable(),
+
+  destroyController(id = `application`) {
     if (get(this, 'isFastBoot')) { return; }
-
-    Ember.$(window).bind('resize', () => {
-      debounce(this, '_updateOnResize', 150);
-    });
-
-  }),
-
-  _updateOnResize() {
-    get(this, 'controllers').forEach(({ _controller }) => {
-      _controller.update();
-    });
-
+    let controller = get(this, `registry.${id}`);
+    if (!controller) {
+      let msg = `Cannot delete ScrollMagic controller - not registered.`,
+          msgid = `scrollmagic-controller-not-registered`
+      return warn(msg, { id: msgid });
+    }
+    controller.destroy();
+    set(this, `registry.${id}`, null);
   },
 
+  addResizeHandler() {
+    if (get(this, 'isFastBoot')) { return; }
+    $(window).bind('resize.emberScrollMagic', () => {
+      get(this, 'updateControllers').perform();
+    });
+  },
+
+  removeResizeHandler() {
+    if (get(this, 'isFastBoot')) { return; }
+    $(window).unbind('resize.emberScrollMagic');
+  }
 
 });

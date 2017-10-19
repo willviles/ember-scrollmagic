@@ -1,0 +1,56 @@
+<h1>{{model.exampleId}}</h1>
+
+<button {{action (toggle 'hide' this)}}>
+  {{if hide 'Show' 'Hide'}}
+</button>
+
+{{#unless hide}}
+
+  {{#scrollmagic-pinned
+    indicators=(hash
+      name='Pineroo'
+      colorStart='blue'
+      colorEnd='blue'
+      colorTrigger='blue'
+    )}}
+    Pinned!
+  {{/scrollmagic-pinned}}
+
+  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+  {{#scrollmagic-toggle
+    toggleClasses='toggle-in-view cool'
+    indicators=(hash
+      name='Togglroo'
+      colorStart='green'
+      colorEnd='green'
+      colorTrigger='green'
+    )}}
+    Toggleable!
+  {{/scrollmagic-toggle}}
+
+  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+  <button {{action (toggle 'extendedDuration' this)}}>
+    {{if extendedDuration '33% Duration' '100% Duration'}}
+  </button>
+
+  <br /><br />
+
+  {{#scrollmagic-animated
+    animation='fade'
+    duration=(if extendedDuration '100%' '33%')
+    indicators=(hash
+      name='Faderoo'
+      colorStart='magenta'
+      colorEnd='magenta'
+      colorTrigger='magenta'
+    )
+  }}
+    This is a really cool animated piece of text.
+  {{/scrollmagic-animated}}
+
+  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+{{/unless}}
