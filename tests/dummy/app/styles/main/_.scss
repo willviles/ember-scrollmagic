@@ -61,3 +61,7 @@ b { font-weight: 700; }
 em { font-style: italic; }
 strong { font-weight: 500; }
 .uppercase { text-transform: uppercase !important; }
+
+hr {
+  border: none; height: 1px; background-color: darken(_get($--colors, 'lt-gray'), 5%);
+}

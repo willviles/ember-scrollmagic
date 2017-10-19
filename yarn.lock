@@ -2399,9 +2399,9 @@ ember-cli-lodash-subset@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/ember-cli-lodash-subset/-/ember-cli-lodash-subset-2.0.1.tgz#20cb68a790fe0fde2488ddfd8efbb7df6fe766f2"
 
-ember-cli-markdown-resolver@0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/ember-cli-markdown-resolver/-/ember-cli-markdown-resolver-0.0.4.tgz#d8b0a122972fd7fb3ab899ccf7d40b0300ab92b4"
+ember-cli-markdown-resolver@0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/ember-cli-markdown-resolver/-/ember-cli-markdown-resolver-0.1.1.tgz#4a966e3b6d61e1605c9952e76320ee42d1f5de88"
   dependencies:
     broccoli-funnel "^2.0.1"
     broccoli-markdown-resolver "^0.0.1"

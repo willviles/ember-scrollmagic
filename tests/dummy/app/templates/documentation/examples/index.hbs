@@ -1,10 +1,20 @@
+{{#ui-section name="header" padding=(hash top="sm")}}
+  <div class="container">
+    <div class="row">
+      <div class="col xs12 align-center">
+        <h2 class="font-header">Examples</h2>
+      </div>
+    </div>
+  </div>
+{{/ui-section}}
+
 {{#ui-section name="examples-list" padding="xs"}}
   <div class="container">
     {{#if examples}}
-      <ul class="row center-xs around-xs">
+      <ul class="row center-xs">
         {{#each examples as | example i |}}
           <li class="col xs12 md6 lg4">
-            {{#ui-panel depth="xs" depthHover="md"}}
+            {{#ui-panel depth="sm" depthHover="md"}}
 
               <div class="header-container">
                 {{#link-to 'documentation.examples.example' example.slug}}

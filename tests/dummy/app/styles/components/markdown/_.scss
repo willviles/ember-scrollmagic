@@ -1,7 +1,7 @@
 @import 'menu';
 @import 'prettyprint';
 
-article {
+article, .markdown-content {
   h1, h2, h3, h4, h5, h6 {
     @include set-font('header');
     margin-bottom: 1em;
@@ -62,6 +62,14 @@ article {
         [type="checkbox"] {
           margin-right: 1em;
         }
+      }
+    }
+  }
+  pre {
+    & > ul, & > ol {
+      font-size: 1rem;
+      li {
+        line-height: 1.5em;
       }
     }
   }

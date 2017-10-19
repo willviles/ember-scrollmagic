@@ -7,8 +7,9 @@
         display: flex;
         & > .panel {
           display: flex;
+          flex-grow: 1;
           flex-direction: column;
-          margin: 1rem 0;
+          margin: 1.5rem 0;
           .header-container {
             padding: 2rem 0 1rem 0;
           }

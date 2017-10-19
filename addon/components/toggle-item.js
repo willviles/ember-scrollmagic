@@ -12,7 +12,7 @@ export default Component.extend(
 
   defaultOptions: computed(function() {
     return {
-      duration: `100%`,
+      duration: 0,
       triggerHook: `onEnter`,
       triggerElement: this.element
     };
@@ -30,7 +30,8 @@ export default Component.extend(
     let opts = get(this, 'mergedOptions'),
         toggleElement = get(this, 'toggleElement'),
         $toggleElement = $(toggleElement),
-        toggleClasses = get(this, 'toggleClasses');
+        toggleClasses = get(this, 'toggleClasses'),
+        toggleClassesOff = get(this, 'toggleClassesOff');
 
     // NOTE: ScrollMagic.Scene().setClassToggle is currently BROKEN!
     //
@@ -46,10 +47,16 @@ export default Component.extend(
 
     scene.on(`enter.${this.elementId}-toggle`, () => {
       $toggleElement.addClass(toggleClasses);
+      if (toggleClassesOff) {
+        $toggleElement.removeClass(toggleClassesOff);
+      }
     });
 
     scene.on(`leave.${this.elementId}-toggle`, function(){
       $toggleElement.removeClass(toggleClasses);
+      if (toggleClassesOff) {
+        $toggleElement.addClass(toggleClassesOff);
+      }
     });
 
     return scene;

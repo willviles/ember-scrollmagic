@@ -3,28 +3,28 @@ import { dasherize } from '@ember/string';
 
 let definitions = [{
   title: 'Basic Animations',
-  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Isto modo, ne si avia quidem eius nata non esset. Sed ne, dum huic obsequor, vobis molestus sim. Nam, ut sint illa vendibiliora, haec uberiora certe sunt. Quorum altera prosunt, nocent altera.'
+  description: `Build beautiful on-scroll animations using just HTMLbars templates. Fade, fly, zoom and toggle classes using Ember ScrollMagic's components.`
 }, {
   title: 'Custom Animations',
-  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Isto modo, ne si avia quidem eius nata non esset. Sed ne, dum huic obsequor, vobis molestus sim. Nam, ut sint illa vendibiliora, haec uberiora certe sunt. Quorum altera prosunt, nocent altera.'
+  description: `Create complex, custom animations using GSAP timelines and attach them via Ember ScrollMagic's well defined primitives.`
 }, {
   title: 'Pinned Items',
-  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eam tum adesse, cum dolor omnis absit; Fortasse id optimum, sed ubi illud: Plus semper voluptatis? Quid ei reliquisti, nisi te, quoquo modo loqueretur, intellegere, quid diceret?'
+  description: `Use Ember ScrollMagic's out-of-the-box pin component to create 'sticky' sections which stay fixed throughout your page. Perfect for navigation menus!`
 }, {
   title: 'Parallax Sections',
-  description: 'Age sane, inquam. Nam bonum ex quo appellatum sit, nescio, praepositum ex eo credo, quod praeponatur aliis. Eadem nunc mea adversum te oratio est. Est enim effectrix multarum et magnarum voluptatum. Duo Reges: constructio interrete.'
+  description: 'Coming soon...'
 }, {
   title: 'Section Wipes',
-  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eam tum adesse, cum dolor omnis absit; Fortasse id optimum, sed ubi illud: Plus semper voluptatis? Quid ei reliquisti, nisi te, quoquo modo loqueretur, intellegere, quid diceret?'
+  description: 'Coming soon...'
 }, {
   title: 'Section Slides',
-  description: 'Age sane, inquam. Nam bonum ex quo appellatum sit, nescio, praepositum ex eo credo, quod praeponatur aliis. Eadem nunc mea adversum te oratio est. Est enim effectrix multarum et magnarum voluptatum. Duo Reges: constructio interrete.'
+  description: 'Coming soon...'
 }, {
   title: 'Component Scrolling',
-  description: 'Age sane, inquam. Nam bonum ex quo appellatum sit, nescio, praepositum ex eo credo, quod praeponatur aliis. Eadem nunc mea adversum te oratio est. Est enim effectrix multarum et magnarum voluptatum. Duo Reges: constructio interrete.'
+  description: 'Coming soon...'
 }, {
   title: 'Horizontal Scrolling',
-  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eam tum adesse, cum dolor omnis absit; Fortasse id optimum, sed ubi illud: Plus semper voluptatis? Quid ei reliquisti, nisi te, quoquo modo loqueretur, intellegere, quid diceret?'
+  description: 'Coming soon...'
 }];
 
 export const examples = definitions.map(example => {

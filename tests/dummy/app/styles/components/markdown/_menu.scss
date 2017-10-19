@@ -8,12 +8,17 @@
   & > ul {
     a {
       padding: .5em 0;
-      &:hover {
-        font-weight: 800;
+      &[href] {
+        &:hover {
+          font-weight: 800;
+        }
+        &.active {
+          color: _get($--colors, 'red');
+          font-weight: 800;
+        }
       }
-      &.active {
-        color: _get($--colors, 'blue');
-        font-weight: 800;
+      &:not([href]):focus {
+        outline: 0;
       }
     }
     ul {
