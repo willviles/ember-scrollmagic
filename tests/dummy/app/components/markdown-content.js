@@ -1,11 +1,13 @@
 import { computed, get } from '@ember/object';
 import { scheduleOnce } from '@ember/runloop';
 import { inject } from '@ember/service';
-// import { htmlSafe } from '@ember/string';
+
 import ShowdownComponent from 'ember-cli-showdown/components/markdown-to-html';
 
 export default ShowdownComponent.extend({
   codePrettify: inject(),
+
+  classNames: ['markdown-content'],
 
   html: computed('markdown', 'converter', function() {
     scheduleOnce('afterRender', this, function() {
@@ -13,6 +15,6 @@ export default ShowdownComponent.extend({
     });
 
     return this._super(...arguments);
-  }).readOnly(),
+  }).readOnly()
 
 });

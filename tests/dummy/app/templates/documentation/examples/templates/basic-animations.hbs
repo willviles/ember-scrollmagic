@@ -1,68 +1,70 @@
 {{#unless hide}}
 
-  {{#ui-section name="header" padding="md"}}
+  {{#ui-section name="header" padding=(hash top="md" bottom="sm")}}
     <div class="container">
       <h1 class="font-header">{{example.title}}</h1>
       <div class="row">
-        <div class="col xs12 md10 lg8 l6">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid ergo attinet gloriose loqui, nisi constanter loquare? Haec quo modo conveniant, non sane intellego.
-          </p>
-          <p>
-            Scroll down to check it out...
-          </p>
+        <div class="col xs12 md10 lg8">
+          {{markdown-content
+            (get-markdown-content 'snippets' 'documentation/examples/templates/basic-animations/intro')
+            extensions="prettify"}}
         </div>
       </div>
     </div>
   {{/ui-section}}
 
-  {{#ui-section name="fade" padding="xl"}}
+  {{#scrollmagic-animated animation='fade' triggerHook=0.9 duration='66%'}}
+    {{#ui-section name="animations" padding="lg" bg="lt-gray" class="prettyprint-white"}}
+      <div class="container">
+        <div class="row">
+          <div class="col xs12 md10 lg8 l6">
+            {{markdown-content
+              (get-markdown-content 'snippets' 'documentation/examples/templates/basic-animations/animations')
+              extensions="prettify"}}
+          </div>
+        </div>
+      </div>
+    {{/ui-section}}
+  {{/scrollmagic-animated}}
+
+  {{#ui-section name="reverse" padding="lg"}}
     <div class="container">
       <div class="row">
         <div class="col xs12 md10 lg8 l6">
-          {{#scrollmagic-animated animation='fade'}}
-            <h3 class="font-header">Fade</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid ergo attinet gloriose loqui, nisi constanter loquare? Haec quo modo conveniant, non sane intellego.
-            </p>
+          {{#scrollmagic-animated reverse=false animation='fade' triggerHook=0.9 duration='66%'}}
+            {{markdown-content
+              (get-markdown-content 'snippets' 'documentation/examples/templates/basic-animations/reverse')
+              extensions="prettify"}}
           {{/scrollmagic-animated}}
         </div>
       </div>
     </div>
   {{/ui-section}}
 
-  {{#ui-section name="fade" padding="xl"}}
-    <div class="container">
-      <div class="row">
-        <div class="col xs12 md10 lg8 l6">
-          {{#scrollmagic-animated reverse=false animation='fade'}}
-            <h3 class="font-header">Using reverse: false</h3>
-            <p>
-              Once you've scrolled past this section, it won't animate again...
-            </p>
-          {{/scrollmagic-animated}}
+  {{#scrollmagic-animated animation='fade' triggerHook=0.9 duration='66%'}}
+    {{#ui-section name="toggle" padding="lg" bg="lt-gray" class="prettyprint-white" as | section |}}
+      <div class="container">
+        <div class="row">
+          <div class="col xs12 md10 lg8 l6">
+            {{#scrollmagic-toggle
+              triggerHook=0.33
+              triggerElement=section.element
+              toggleElement=section.element
+              toggleClasses='bg-blue color-white prettyprint-gray'
+              toggleClassesOff='bg-lt-gray prettyprint-white'}}
+
+              {{markdown-content
+                (get-markdown-content 'snippets' 'documentation/examples/templates/basic-animations/toggle')
+                extensions="prettify"}}
+
+            {{/scrollmagic-toggle}}
+          </div>
         </div>
       </div>
-    </div>
-  {{/ui-section}}
+    {{/ui-section}}
+  {{/scrollmagic-animated}}
 
-  {{#ui-section name="toggle" padding="xl"}}
-    <div class="container">
-
-      <div class="row">
-        <div class="col xs12 md10 lg8 l6">
-          {{#scrollmagic-toggle triggerHook="onCenter" duration=0 toggleClasses='color-blue'}}
-            <h3 class="font-header">Toggle Classes</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid ergo attinet gloriose loqui, nisi constanter loquare? Haec quo modo conveniant, non sane intellego.
-            </p>
-          {{/scrollmagic-toggle}}
-        </div>
-      </div>
-    </div>
-  {{/ui-section}}
-
-  {{#ui-section name="indicators" padding="xl"}}
+  {{#ui-section name="indicators" padding="lg"}}
     <div class="container">
 
       <div class="row">
@@ -70,17 +72,17 @@
           {{#scrollmagic-animated
             animation='fade'
             duration='50%'
+            triggerHook=0.8
             indicators=(hash
               name='Check out these indicators!'
               colorStart='#1682fc'
               colorEnd='#1682fc'
-              colorTrigger='#1682fc'
+              colorTrigger='transparent'
             )
           }}
-            <h3 class="font-header">Indicators</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid ergo attinet gloriose loqui, nisi constanter loquare? Haec quo modo conveniant, non sane intellego.
-            </p>
+            {{markdown-content
+              (get-markdown-content 'snippets' 'documentation/examples/templates/basic-animations/indicators')
+              extensions="prettify"}}
           {{/scrollmagic-animated}}
         </div>
       </div>
@@ -88,27 +90,52 @@
 
   {{/ui-section}}
 
-  {{#ui-section name="dynamic-properties" padding="xl"}}
-    <div class="container">
+  {{#scrollmagic-animated animation='fade' triggerHook=0.9 duration='66%'}}
 
-      <div class="row">
-        <div class="col xs12 md10 lg8 l6">
-          {{#scrollmagic-animated
-            animation='fade'
-            duration=(if extendedDuration '66%' '33%')
-            indicators=(hash
-              name='Watch the duration change...'
-              colorStart='#1682fc'
-              colorEnd='#1682fc'
-              colorTrigger='#1682fc'
-            )}}
-            <h3 class="font-header">Dynamic Properties</h3>
+    {{#ui-section name="dynamic-properties" padding="lg" bg="dk-gray" color="white" class="prettyprint-gray"}}
+      <div class="container">
+
+        <div class="row">
+          <div class="col xs12 md10 lg8 l6">
+            {{markdown-content
+              (get-markdown-content 'snippets' 'documentation/examples/templates/basic-animations/dynamic-properties')
+              extensions="prettify"}}
+
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid ergo attinet gloriose loqui, nisi constanter loquare? Haec quo modo conveniant, non sane intellego.
-            </p>
+              <code class="prettyprint">triggerHook=</code> {{input value=props.triggerHook type="number" min="0" max="1" step="0.05"}} &nbsp;
+              <code class="prettyprint">duration=</code> {{input value=props.duration type="number" min="1" max="200" step="1"}}%
 
-            {{#ui-button click=(toggle 'extendedDuration' this) bg="blue" color="white" padding="sm" inline=true}}
-              {{if extendedDuration 'Duration: 1/3 Viewport' 'Duration: 2/3 Viewport'}}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <br /><br /><br /><br /><br /><br />
+
+      {{#scrollmagic-animated
+        animation='fly-horizontal'
+        duration=props.durationPercentage
+        triggerHook=props.triggerHook}}
+        <div class="row center-xs">
+          <img src="{{rootURL}}images/ember-rocket.svg" alt="Ember Rocket" />
+        </div>
+      {{/scrollmagic-animated}}
+
+    {{/ui-section}}
+  {{/scrollmagic-animated}}
+
+  {{#ui-section name="component-lifecycle" padding="lg"}}
+    <div class="container">
+      <div class="row">
+        <div class="col xs12 md10 lg8 xl7">
+
+          {{#scrollmagic-animated animation='fade' triggerHook=0.9 duration='66%'}}
+            {{markdown-content
+              (get-markdown-content 'snippets' 'documentation/examples/templates/basic-animations/component-lifecycle')
+              extensions="prettify"}}
+
+            {{#ui-button click=(toggle 'hide' this) bg="blue" color="white" padding="sm" inline=true}}
+              {{if hide 'Show All Animations!' 'Hide All Animations!'}}
             {{/ui-button}}
           {{/scrollmagic-animated}}
 
@@ -117,34 +144,15 @@
     </div>
   {{/ui-section}}
 
-  {{#ui-section padding="xl"}}
-    <div class="container">
-      <div class="row">
-        <div class="col xs12 md10 lg8 xl6">
-          <h3 class="font-header">Component Lifecycle Hooks</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quarum ambarum rerum cum medicinam pollicetur, luxuriae licentiam pollicetur. Cum autem in quo sapienter dicimus, id a primo rectissime dicitur. Duo Reges: constructio interrete. Qua tu etiam inprudens utebare non numquam.
-          </p>
-          {{#ui-button click=(toggle 'hide' this) bg="blue" color="white" padding="sm" inline=true}}
-            {{if hide 'Show All Animations!' 'Hide All Animations!'}}
-          {{/ui-button}}
-        </div>
-      </div>
-    </div>
-  {{/ui-section}}
-
 {{else}}
-  {{#ui-section padding="md"}}
+  {{#ui-section name="hidden" padding="lg" bg="dk-gray" color="white" class="prettyprint-gray"}}
     <div class="container">
       <div class="row">
         <div class="col xs12 md10 lg8 l6">
-          <h3 class="font-header">You've Hidden Everything!</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid ergo attinet gloriose loqui, nisi constanter loquare? Haec quo modo conveniant, non sane intellego.
-          </p>
-          <p>
-            Everything will be reinstantiated properly.
-          </p>
+          {{markdown-content
+            (get-markdown-content 'snippets' 'documentation/examples/templates/basic-animations/component-lifecycle-hidden')
+            extensions="prettify"}}
+
           {{#ui-button click=(toggle 'hide' this) bg="blue" color="white" padding="sm" inline=true}}
             {{if hide 'Show All Animations!' 'Hide All Animations!'}}
           {{/ui-button}}

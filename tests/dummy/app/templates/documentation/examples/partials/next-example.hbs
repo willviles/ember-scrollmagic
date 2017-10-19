@@ -1,16 +1,18 @@
 {{#if nextExample}}
+  <hr />
   {{#ui-section name="next-example" padding="md"}}
     <div class="container">
       <div class="row align-center">
         <div class="col xs12">
-          <h4 class="font-header">Next Example...</h4>
+          <h5>Next Example...</h5>
+          <h2 class="font-header">{{nextExample.title}}</h2>
           <br /><br />
           {{#ui-button-link-to 'documentation.examples.example' nextExample.slug
             bg="blue"
             color="white"
             padding="md"
             inline=true}}
-            {{nextExample.title}}
+            Go!
           {{/ui-button-link-to}}
         </div>
       </div>

@@ -37,7 +37,8 @@ module.exports = function(environment) {
 
   ENV['ember-cli-markdown-resolver'] = {
     folders: {
-      guides: 'app/guides'
+      guides: 'app/guides',
+      snippets: 'app/snippets'
     }
   };
 
