@@ -1,1 +1,46 @@
-<h2>Index</h2>
+{{#ui-section name="header" bg="blue" color="white"}}
+  <div class="container">
+    <div class="row">
+      <div class="col xs12 align-center">
+
+        <img src="{{rootURL}}images/logo-light.svg" alt="Ember ScrollMagic" class="lead-image" />
+
+        <br /><br /><br />
+
+        <h5 class="font-header">Build magical scroll interactions Ember using ScrollMagic.js.</h5>
+
+        <br /><br />
+
+        {{ui-button-link-to 'View Examples' 'documentation.examples'
+            bg="blue-dk"
+            bgHover="white"
+            color="white"
+            colorHover="blue"
+            inline=true
+            padding="md"
+            depth="xs" depthHover="md" }}
+        &nbsp;
+        {{ui-button-link-to 'Read Guides' 'documentation.guides'
+            bg="blue-dk"
+            bgHover="white"
+            color="white"
+            colorHover="blue"
+            inline=true
+            padding="md"
+            depth="xs" depthHover="md" }}
+        &nbsp;
+        {{ui-button-link 'GitHub'
+            href="https://github.com/willviles/ember-scrollmagic"
+            target="_blank"
+            bg="blue-dk"
+            bgHover="white"
+            color="white"
+            colorHover="blue"
+            inline=true
+            padding="md"
+            depth="xs" depthHover="md" }}
+
+      </div>
+    </div>
+  </div>
+{{/ui-section}}

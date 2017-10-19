@@ -8,8 +8,14 @@ const Router = EmberRouter.extend({
 
 Router.map(function() {
 
-  this.route('examples', function() {
-    this.route('example', { path: '/:example_slug'});
+  this.route('documentation', function() {
+    this.route('guides', function() {
+      this.route('single', { path: '/*path' });
+    });
+
+    this.route('examples', function() {
+      this.route('example', { path: '/:example_slug'});
+    });
   });
 
 });
