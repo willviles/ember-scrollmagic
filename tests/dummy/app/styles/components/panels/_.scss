@@ -1,0 +1,23 @@
+.panel {
+
+  &.rounded {
+    border-radius: _get($--panels, 'border-radius');
+    overflow: hidden;
+  }
+
+  @for $i from 1 through length(_get($--grid, 'breakpoints')) {
+    $breakpoints: _keys(_get($--grid, 'breakpoints'));
+    $breakpoint: nth($breakpoints, $i);
+
+    &.padding-#{$breakpoint} {
+      $padding: nth(_get($--panels, 'padding'), $i);
+      $horiz-ratio: _get($--panels, 'padding-horiz-ratio');
+      padding: $padding #{$padding * $horiz-ratio};
+    }
+
+    &.font-size-#{$breakpoint} {
+      font-size: nth(_get($--panels, 'font-size'), $i);
+    }
+  }
+
+}

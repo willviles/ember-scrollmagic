@@ -22,3 +22,10 @@ $--sections: (
   font-size: (.7rem, .9rem, 1rem, 1.1rem, 1.2rem),
   padding: (3rem, 5rem, 7rem, 10rem, 20rem)
 );
+
+$--panels: (
+  font-size: (.7rem, 1rem, 1.2rem, 1.5rem, 2rem),
+  padding: (.5rem, .75rem, 1rem, 2rem, 3rem),
+  padding-horiz-ratio: 1.5,
+  border-radius: .25rem
+);

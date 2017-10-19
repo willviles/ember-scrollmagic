@@ -2705,6 +2705,14 @@ ember-load-initializers@^1.0.0:
   dependencies:
     ember-cli-babel "^6.0.0-beta.7"
 
+ember-math-helpers@^2.2.3:
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/ember-math-helpers/-/ember-math-helpers-2.2.3.tgz#86d0ba90ce5577d5b574762ad3d132dd4b6209db"
+  dependencies:
+    broccoli-funnel "^1.2.0"
+    ember-cli-babel "^6.8.1"
+    ember-cli-htmlbars "^2.0.3"
+
 ember-maybe-import-regenerator@^0.1.5:
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/ember-maybe-import-regenerator/-/ember-maybe-import-regenerator-0.1.6.tgz#35d41828afa6d6a59bc0da3ce47f34c573d776ca"
