@@ -1,0 +1,11 @@
+{
+  "assets": {
+    "assets/dummy-fastboot.js": "assets/dummy-fastboot-d39f81ac6afa7ce9b434589485d7e662.js",
+    "assets/dummy.css": "assets/dummy-cc436111fff889cb384a5cbc0d100627.css",
+    "assets/dummy.js": "assets/dummy-7ca1de45152d2eb9cb94fc638feb4264.js",
+    "assets/vendor.css": "assets/vendor-1cd24beb29ab8d3d92aaf871ee14ca82.css",
+    "assets/vendor.js": "assets/vendor-6e23f75e6ae0ebe0a788fd2c4295ee25.js",
+    "images/logo-navbar.png": "images/logo-navbar-3325d0904bed6ede62fea209381dc84c.png"
+  },
+  "prepend": ""
+}
