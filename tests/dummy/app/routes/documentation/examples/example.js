@@ -7,6 +7,10 @@ import { examples } from '../../../examples';
 
 export default Route.extend({
 
+  titleToken({ example }) {
+    return get(example, 'title');
+  },
+
   model({ example_slug: slug }) {
     let examplesRegistry = A(examples),
         nextExample;

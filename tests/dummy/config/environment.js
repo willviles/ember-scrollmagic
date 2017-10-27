@@ -23,6 +23,7 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     }
+
   };
 
   // @addon Ember ScrollMagic
@@ -30,6 +31,13 @@ module.exports = function(environment) {
 
   ENV['ember-scrollmagic'] = {
     indicators: true
+  };
+
+  // @addon Ember CLI Fastboot
+  // @url https://github.com/ember-fastboot/ember-cli-fastboot
+
+  ENV['fastboot'] = {
+    hostWhitelist: [/^localhost:\d+$/]
   };
 
   // @addon Ember CLI Markdown Resolver
