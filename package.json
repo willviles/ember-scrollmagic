@@ -24,6 +24,7 @@
     "doc": "doc",
     "test": "tests"
   },
+  "homepage": "https://willviles.github.io/ember-scrollmagic",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/willviles/ember-scrollmagic.git"
@@ -80,6 +81,7 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
+    "demoURL": "https://willviles.github.io/ember-scrollmagic/#/documentation/examples",
     "after": [
       "ember-gsap"
     ]
