@@ -15,7 +15,7 @@ ember install ember-scrollmagic
 
 ## Examples & Documentation
 
-Check out the Ember ScrollMagic site for [examples](https://willviles.github.io/ember-scrollmagic/documentation/examples) and [guides](https://willviles.github.io/ember-scrollmagic/documentation/guides).
+**Check out the Ember ScrollMagic site for [examples](https://willviles.github.io/ember-scrollmagic/#/documentation/examples) and [guides](https://willviles.github.io/ember-scrollmagic/#/documentation/guides).**
 
 Please refer to the ScrollMagic [docs](http://scrollmagic.io/docs/index.html) for information on using controllers and scenes. For ideas and inspiration of what to create with ScrollMagic, check out the [examples](http://scrollmagic.io/examples/).
 
