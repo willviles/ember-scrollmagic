@@ -3,10 +3,10 @@ title: Application
 order: 0
 ---
 
-#### application-controller-mixin
+#### Application Route Mixin
 
 <span class="codelink">
-[&rarr; addon/mixins/application-controller-mixin.js](https://github.com/willviles/ember-scrollmagic/blob/master/addon/mixins/application-controller-mixin.js)
+[&rarr; addon/mixins/scroll-controllers/route-mixin.js](https://github.com/willviles/ember-scrollmagic/blob/master/addon/mixins/scroll-controllers/route-mixin.js)
 </span>
 
 By default, Ember ScrollMagic will register all ScrollMagic scenes to a scroll controller named `application`.
@@ -15,10 +15,10 @@ It needs to be registered in your `routes/application.js`:
 
 ```javascript
 import Route from '@ember/routing/route';
-import ScrollControllerMixin from 'ember-scrollmagic/mixins/application-controller-mixin';
+import ScrollControllerRouteMixin from 'ember-scrollmagic/mixins/scroll-controllers/route-mixin';
 
 export default Route.extend(
-  ScrollControllerMixin, {
+  ScrollControllerRouteMixin, {
 
 });
 ```
