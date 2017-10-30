@@ -5,6 +5,9 @@ let definitions = [{
   title: 'Basic Animations',
   description: `Build beautiful on-scroll animations using just HTMLbars templates. Fade, fly, zoom and toggle classes using Ember ScrollMagic's components.`
 }, {
+  title: 'Responsive Animations',
+  description: `Add or remove animation scenes responsively with Ember ScrollMagic's integration with popular addon Ember Responsive.`
+}, {
   title: 'Custom Animations',
   description: `Create complex, custom animations using GSAP timelines and attach them via Ember ScrollMagic's well defined primitives.`
 }, {
@@ -14,10 +17,7 @@ let definitions = [{
   title: 'Parallax Sections',
   description: 'Coming soon...'
 }, {
-  title: 'Section Wipes',
-  description: 'Coming soon...'
-}, {
-  title: 'Section Slides',
+  title: 'Section Wipes & Slides',
   description: 'Coming soon...'
 }, {
   title: 'Component Scrolling',

@@ -15,7 +15,10 @@ import { inject as service } from '@ember/service';
 import { capitalize } from '@ember/string';
 import { typeOf } from '@ember/utils';
 
-export default Mixin.create({
+import ScrollMagicResponsiveMixin from 'ember-scrollmagic/mixins/components/responsive-mixin';
+
+export default Mixin.create(
+  ScrollMagicResponsiveMixin, {
 
   scrollMagic: service(),
 
@@ -47,11 +50,33 @@ export default Mixin.create({
     return assign({}, defaultOptions, sceneOptions);
   }),
 
+  setOrRemoveScene() {
+    let scene = get(this, 'scene'),
+        match = this.isActiveMediaQuery();
+
+    if (match && !scene) {
+      this.setScene();
+    } else if (!match && scene) {
+      this.removeScene();
+    }
+  },
+
   setScene() {
     let scene = this.setupScene();
+
     this.addIndicators(scene);
     this.addSceneEventHandlers(scene);
+
     set(this, 'scene', scene);
+
+    this.addScene();
+  },
+
+  addScene() {
+    let controller = get(this, 'scrollController'),
+        scene = get(this, 'scene');
+
+    controller.addScene(scene);
   },
 
   setupScene() {
@@ -71,6 +96,16 @@ export default Mixin.create({
     });
 
     scene.refresh();
+  },
+
+  removeScene() {
+    let scene = get(this, 'scene');
+    if (scene) {
+      this.removeSceneEventHandlers(scene);
+      this.removeSceneProps(scene);
+      scene.remove();
+      set(this, 'scene', null);
+    }
   },
 
   addIndicators(scene) {
@@ -109,22 +144,13 @@ export default Mixin.create({
     });
   },
 
+  removeSceneProps() {
+    this.$().removeAttr('style');
+  },
+
   didRender() {
     this._super(...arguments);
-
-    let scrollMagic = get(this, 'scrollMagic'),
-        sceneInitialized = get(this, 'sceneInitialized');
-
-    if (get(scrollMagic, 'isFastBoot') || sceneInitialized === true) { return; }
-
-    this.setScene();
-
-    let controller = get(this, 'scrollController'),
-        scene = get(this, 'scene');
-
-    controller.addScene(scene);
-
-    set(this, 'sceneInitialized', true);
+    this.setOrRemoveScene();
   },
 
   didReceiveAttrs() {
@@ -165,11 +191,7 @@ export default Mixin.create({
 
   willDestroyElement() {
     this._super(...arguments);
-    let scene = get(this, 'scene');
-    if (scene) {
-      this.removeSceneEventHandlers(scene);
-      scene.remove();
-    }
+    this.removeScene();
   }
 
 });
