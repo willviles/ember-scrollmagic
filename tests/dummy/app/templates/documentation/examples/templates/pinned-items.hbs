@@ -43,7 +43,7 @@
 
   <br /><br /><br /><br />
 
-  {{#scrollmagic-pinned duration='125%'}}
+  {{#scrollmagic-pinned duration='125%' pinOptions=(hash pushFollowers=true)}}
     {{#ui-panel name="pin-pushfollowers" bg="blue" color="white" rounded=false}}
       <div>
         <h3 class="font-header">I'm coming with you!</h3>
@@ -66,7 +66,7 @@
 
     <br /><br /><br /><br />
 
-    {{#scrollmagic-pinned duration=0 class="pin-navigation"}}
+    {{#scrollmagic-pinned class="pin-navigation"}}
       <div class="pinned-nav">
         <ul class="row center-xs">
           <li>

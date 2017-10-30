@@ -10,7 +10,7 @@ export const ScrollMagicPinnedMixin = Mixin.create(
 
   defaultOptions: computed(function() {
     return {
-      duration: `100%`,
+      duration: 0,
       triggerHook: `onLeave`,
       triggerElement: this.element
     };
@@ -28,7 +28,7 @@ export const ScrollMagicPinnedMixin = Mixin.create(
 
   pinOptions: computed(function() {
     return {
-      pushFollowers: true,
+      pushFollowers: false,
       spacerClass: '.scrollmagic-pin-spacer'
     }
   }),
