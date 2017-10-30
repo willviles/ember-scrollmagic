@@ -1,14 +1,15 @@
 import Component from '@ember/component';
+import Mixin from '@ember/object/mixin';
 import { assert } from '@ember/debug';
 import { computed, get } from '@ember/object';
 
 import ScrollMagic from 'scrollmagic';
 import $ from 'jquery';
 
-import ScrollMagicComponentMixin from 'ember-scrollmagic/mixins/component-scene-mixin';
+import ScrollMagicSceneMixin from 'ember-scrollmagic/mixins/components/scene-mixin';
 
-export default Component.extend(
-  ScrollMagicComponentMixin, {
+export const ScrollMagicToggleMixin = Mixin.create(
+  ScrollMagicSceneMixin, {
 
   defaultOptions: computed(function() {
     return {
@@ -74,3 +75,5 @@ export default Component.extend(
   }
 
 });
+
+export default Component.extend(ScrollMagicToggleMixin);

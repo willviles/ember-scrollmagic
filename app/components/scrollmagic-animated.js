@@ -1,4 +1,1 @@
-export {
-  default
-}
-from 'ember-scrollmagic/components/animated-item';
+export { default } from 'ember-scrollmagic/components/animated-item';

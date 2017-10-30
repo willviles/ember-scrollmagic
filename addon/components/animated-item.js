@@ -1,4 +1,5 @@
 import Component from '@ember/component';
+import Mixin from '@ember/object/mixin';
 import { assert } from '@ember/debug';
 
 import {
@@ -11,10 +12,10 @@ import ScrollMagic from 'scrollmagic';
 import { TimelineMax, TweenLite } from 'gsap';
 
 import defaultAnimations from 'ember-scrollmagic/utils/animations';
-import ScrollMagicComponentMixin from 'ember-scrollmagic/mixins/component-scene-mixin';
+import ScrollMagicSceneMixin from 'ember-scrollmagic/mixins/components/scene-mixin';
 
-export default Component.extend(
-  ScrollMagicComponentMixin, {
+export const ScrollMagicAnimatedMixin = Mixin.create(
+  ScrollMagicSceneMixin, {
 
   setupScene() {
     let opts = get(this, 'mergedOptions'),
@@ -44,3 +45,5 @@ export default Component.extend(
   })
 
 });
+
+export default Component.extend(ScrollMagicAnimatedMixin);

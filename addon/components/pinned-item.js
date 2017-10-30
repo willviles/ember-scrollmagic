@@ -1,12 +1,12 @@
 import Component from '@ember/component';
+import Mixin from '@ember/object/mixin';
 import { computed, get } from '@ember/object';
 
 import ScrollMagic from 'scrollmagic';
+import ScrollMagicSceneMixin from 'ember-scrollmagic/mixins/components/scene-mixin';
 
-import ScrollMagicComponentMixin from 'ember-scrollmagic/mixins/component-scene-mixin';
-
-export default Component.extend(
-  ScrollMagicComponentMixin, {
+export const ScrollMagicPinnedMixin = Mixin.create(
+  ScrollMagicSceneMixin, {
 
   defaultOptions: computed(function() {
     return {
@@ -40,5 +40,6 @@ export default Component.extend(
 
     return new ScrollMagic.Scene(opts).setPin(pinElementId, pinOptions);
   }
-
 });
+
+export default Component.extend(ScrollMagicPinnedMixin);
