@@ -1,8 +1,9 @@
 import Mixin from '@ember/object/mixin';
 import { getOwner } from '@ember/application';
+import { A } from '@ember/array';
 import { computed, get, getProperties } from '@ember/object';
 import { addObserver, removeObserver } from '@ember/object/observers';
-import { isPresent } from '@ember/utils';
+import { isPresent, typeOf } from '@ember/utils';
 
 export default Mixin.create({
 
@@ -19,10 +20,10 @@ export default Mixin.create({
   setResponsiveSceneHandlers() {
     let {
       media,
-      triggerMediaQuery
-    } = getProperties(this, 'media', 'triggerMediaQuery');
+      triggerOnMedia
+    } = getProperties(this, 'media', 'triggerOnMedia');
 
-    if (!media || !triggerMediaQuery) { return; }
+    if (!media || !triggerOnMedia) { return; }
     addObserver(media, 'matches.[]', this, 'onResponsiveSizeChange');
   },
 
@@ -32,12 +33,18 @@ export default Mixin.create({
 
   isActiveMediaQuery() {
     let media = get(this, 'media'),
-        triggerMediaQuery = get(this, 'triggerMediaQuery');
+        triggerOnMedia = get(this, 'triggerOnMedia');
 
-    if (!media || !triggerMediaQuery) { return true; }
+    if (!media || !triggerOnMedia) { return true; }
+
+    if (typeOf(triggerOnMedia) === 'string') {
+      triggerOnMedia = A([triggerOnMedia]);
+    }
+
+    if (typeOf(triggerOnMedia) !== 'array') { return true; }
 
     let matches = get(media, 'matches'),
-        match = triggerMediaQuery.find(media => {
+        match = triggerOnMedia.find(media => {
           return matches.includes(media);
         });
 
