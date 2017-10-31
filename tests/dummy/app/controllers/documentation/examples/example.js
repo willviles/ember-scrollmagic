@@ -3,6 +3,8 @@ import { default as EmberObject, computed, get, set } from '@ember/object';
 import { readOnly } from '@ember/object/computed';
 import { inject as service } from '@ember/service';
 
+import { TweenLite } from 'gsap';
+
 export default Controller.extend({
 
   scrollMagic: service(),
@@ -20,6 +22,11 @@ export default Controller.extend({
           return `${get(this, 'duration')}%`;
         }),
         triggerHook: 0.75
+      },
+      'pinned-items': {
+        scrollToTop() {
+          TweenLite.to(window, 0.5, { scrollTo: 0 });
+        }
       }
     }));
   },

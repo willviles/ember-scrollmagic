@@ -2727,11 +2727,14 @@ ember-getowner-polyfill@^2.0.0, ember-getowner-polyfill@^2.0.1:
     ember-cli-version-checker "^1.2.0"
     ember-factory-for-polyfill "^1.1.0"
 
-ember-gsap@0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/ember-gsap/-/ember-gsap-0.1.0.tgz#a21af907c91f3a60461e5030e8d9460549347ece"
+ember-gsap@0.3.3:
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/ember-gsap/-/ember-gsap-0.3.3.tgz#d32b017f6c06a21a64270bf2d00cdef6991b62e9"
   dependencies:
+    broccoli-debug "^0.6.2"
+    broccoli-stew "^1.5.0"
     ember-cli-babel "^5.1.7"
+    fastboot-transform "^0.1.2"
     gsap "^1.19.1"
 
 ember-load-initializers@^1.0.0:

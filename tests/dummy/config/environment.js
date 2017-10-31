@@ -33,6 +33,15 @@ module.exports = function(environment) {
     indicators: true
   };
 
+  // @addon Ember GSAP
+  // @url https://github.com/willviles/ember-gsap
+
+  ENV['ember-gsap'] = {
+    plugins: [
+      'scrollTo'
+    ]
+  };
+
   // @addon Ember CLI Fastboot
   // @url https://github.com/ember-fastboot/ember-cli-fastboot
 

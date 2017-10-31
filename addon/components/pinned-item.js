@@ -29,7 +29,7 @@ export const ScrollMagicPinnedMixin = Mixin.create(
   pinOptions: computed(function() {
     return {
       pushFollowers: false,
-      spacerClass: '.scrollmagic-pin-spacer'
+      spacerClass: 'scrollmagic-pin-spacer'
     }
   }),
 
@@ -37,6 +37,8 @@ export const ScrollMagicPinnedMixin = Mixin.create(
     let opts = get(this, 'mergedOptions'),
         pinElementId = get(this, 'pinElementId'),
         pinOptions = get(this, 'pinOptions');
+
+    pinOptions = JSON.parse(JSON.stringify(pinOptions));
 
     return new ScrollMagic.Scene(opts).setPin(pinElementId, pinOptions);
   }

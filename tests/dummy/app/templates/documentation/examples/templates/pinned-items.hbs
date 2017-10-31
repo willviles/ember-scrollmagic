@@ -3,70 +3,56 @@
     <h1 class="font-header">{{example.title}}</h1>
     <div class="row">
       <div class="col xs12 md10 lg8 l6">
-        <p>
-          Example coming soon...
-        </p>
+        {{markdown-content
+          (get-markdown-content 'snippets' 'documentation/examples/templates/pinned-items/intro')
+          extensions="prettify"}}
       </div>
     </div>
   </div>
 {{/ui-section}}
 
-<!-- {{#ui-section name="header" padding="md"}}
-  <div class="container">
-    <h1 class="font-header">{{example.title}}</h1>
-    <div class="row">
-      <div class="col xs12 md10 lg8 l6">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid ergo attinet gloriose loqui, nisi constanter loquare? Haec quo modo conveniant, non sane intellego.
-        </p>
-        <p>
-          Scroll down to check it out...
-        </p>
-      </div>
-    </div>
-  </div>
-{{/ui-section}}
-
-{{#ui-section name="pushfollowers" padding='xs'}}
+{{#ui-section bg="lt-gray" padding=(hash top="md" bottom="md") class="prettyprint-white"}}
   <div class="container">
 
     <div class="row">
       <div class="col xs12 md10 lg8 l6">
-        <h3 class="font-header">Using 'pushfollowers: true'</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid ergo attinet gloriose loqui, nisi constanter loquare? Haec quo modo conveniant, non sane intellego.
-        </p>
+        {{markdown-content
+          (get-markdown-content 'snippets' 'documentation/examples/templates/pinned-items/scroll-to-top')
+          extensions="prettify"}}
       </div>
     </div>
 
+    <hr /><br /><br />
+
+    {{#scrollmagic-pinned triggerHook="onEnter" offset="50px" pinOptions=(hash spacerClass='scroll-top-pin-spacer')}}
+      <div class="row center-xs">
+        {{#ui-button click=(action interactivity.pinned-items.scrollToTop)
+                     bg="blue-dk" bgHover="blue" color="white" padding="sm" inline=true }}
+          Top!
+        {{/ui-button}}
+      </div>
+    {{/scrollmagic-pinned}}
+
+    <br /><br /><hr />
+
   </div>
 
-  <br /><br /><br /><br />
-
-  {{#scrollmagic-pinned duration='125%' pinOptions=(hash pushFollowers=true)}}
-    {{#ui-panel name="pin-pushfollowers" bg="blue" color="white" rounded=false}}
-      <div>
-        <h3 class="font-header">I'm coming with you!</h3>
-      </div>
-    {{/ui-panel}}
-  {{/scrollmagic-pinned}}
 {{/ui-section}}
 
-{{#ui-section name="pushfollowers-false" padding=(hash top='md' bottom="md")}}
+{{#ui-section padding=(hash top='md' bottom="md")}}
   <div class="container">
 
     <div class="row">
       <div class="col xs12 md10 lg8 l6">
-        <h3 class="font-header">Using 'pushfollowers: false'</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid ergo attinet gloriose loqui, nisi constanter loquare? Haec quo modo conveniant, non sane intellego.
-        </p>
+        {{markdown-content
+          (get-markdown-content 'snippets' 'documentation/examples/templates/pinned-items/navbar')
+          extensions="prettify"}}
       </div>
     </div>
 
     <br /><br /><br /><br />
 
-    {{#scrollmagic-pinned class="pin-navigation"}}
+    {{#scrollmagic-pinned duration=900 class="pin-navigation"}}
       <div class="pinned-nav">
         <ul class="row center-xs">
           <li>
@@ -105,4 +91,32 @@
       </p>
     </article>
   </div>
-{{/ui-section}} -->
+{{/ui-section}}
+
+{{#ui-section bg="lt-gray" padding=(hash top="md" bottom=false) class="prettyprint-white"}}
+  <div class="container">
+
+    <div class="row">
+      <div class="col xs12 md10 lg8 l6">
+        {{markdown-content
+          (get-markdown-content 'snippets' 'documentation/examples/templates/pinned-items/fullscreen-section')
+          extensions="prettify"}}
+      </div>
+    </div>
+
+  </div>
+
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+
+  {{#scrollmagic-pinned duration='125%' pinOptions=(hash pushFollowers=true)}}
+    {{#ui-panel name="pin-pushfollowers" bg="blue" color="white" rounded=false}}
+      <div>
+        <h3 class="font-header">I'm coming with you!</h3>
+      </div>
+    {{/ui-panel}}
+  {{/scrollmagic-pinned}}
+{{/ui-section}}

@@ -18,4 +18,8 @@
     }
     border-bottom: 1px solid _get($--colors, 'blue');
   }
+
+  .scroll-top-pin-spacer {
+    z-index: 1000;
+  }
 }

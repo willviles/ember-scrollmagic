@@ -7,7 +7,7 @@ module.exports = {
   afterInstall(/*options*/) {
     return this.addPackagesToProject(
       [
-        { name: 'ember-gsap', target: 'latest' }
+        { name: 'ember-gsap', target: '^0.3.3' }
       ]
     );
   }
