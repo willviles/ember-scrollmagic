@@ -2,6 +2,8 @@ import Component from '@ember/component';
 import Mixin from '@ember/object/mixin';
 import { assert } from '@ember/debug';
 
+import layout from 'ember-scrollmagic/templates/components/base-item';
+
 import {
   default as EmberObject,
   computed,
@@ -16,6 +18,8 @@ import ScrollMagicSceneMixin from 'ember-scrollmagic/mixins/components/scene-mix
 
 export const ScrollMagicAnimatedMixin = Mixin.create(
   ScrollMagicSceneMixin, {
+
+  layout,
 
   setupScene() {
     let opts = get(this, 'mergedOptions'),

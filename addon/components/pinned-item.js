@@ -5,8 +5,12 @@ import { computed, get } from '@ember/object';
 import ScrollMagic from 'scrollmagic';
 import ScrollMagicSceneMixin from 'ember-scrollmagic/mixins/components/scene-mixin';
 
+import layout from 'ember-scrollmagic/templates/components/pinned-item';
+
 export const ScrollMagicPinnedMixin = Mixin.create(
   ScrollMagicSceneMixin, {
+
+  layout,
 
   defaultOptions: computed(function() {
     return {
@@ -16,14 +20,8 @@ export const ScrollMagicPinnedMixin = Mixin.create(
     };
   }),
 
-  pinElement: computed(function() {
-    return this.element;
-  }),
-
-  pinElementId: computed('pinElement', function() {
-    let pinElement = get(this, 'pinElement');
-    if (!pinElement) { return; }
-    return `#${pinElement.getAttribute('id')}`;
+  pinElementId: computed(function() {
+    return `scrollmagic-pin-${this.elementId}-target`;
   }),
 
   pinOptions: computed(function() {
@@ -40,7 +38,7 @@ export const ScrollMagicPinnedMixin = Mixin.create(
 
     pinOptions = JSON.parse(JSON.stringify(pinOptions));
 
-    return new ScrollMagic.Scene(opts).setPin(pinElementId, pinOptions);
+    return new ScrollMagic.Scene(opts).setPin(`#${pinElementId}`, pinOptions);
   }
 });
 

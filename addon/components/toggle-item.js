@@ -8,8 +8,12 @@ import $ from 'jquery';
 
 import ScrollMagicSceneMixin from 'ember-scrollmagic/mixins/components/scene-mixin';
 
+import layout from 'ember-scrollmagic/templates/components/base-item';
+
 export const ScrollMagicToggleMixin = Mixin.create(
   ScrollMagicSceneMixin, {
+
+  layout,
 
   defaultOptions: computed(function() {
     return {
