@@ -30,7 +30,7 @@ module.exports = {
     }
 
     // Expose `import` via a shim
-    app.import('vendor/scrollmagic-shim.js', {
+    app.import('vendor/shims/scroll-magic.js', {
       exports: {
         scrollmagic: ['default']
       }
