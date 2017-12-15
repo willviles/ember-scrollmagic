@@ -1,6 +1,6 @@
 <img src="https://user-images.githubusercontent.com/2046935/30335364-0c508374-97da-11e7-8552-6a5a6e6fa820.png" width="auto" height="70">
 
-Ember ScrollMagic ![Download count all time](https://img.shields.io/npm/dt/ember-scrollmagic.svg) [![npm](https://img.shields.io/npm/v/ember-scrollmagic.svg)](https://www.npmjs.com/package/ember-scrollmagic)
+Ember ScrollMagic [![Build Status](https://travis-ci.org/willviles/ember-scrollmagic.svg)](https://travis-ci.org/willviles/ember-scrollmagic) [![Ember Observer Score](http://emberobserver.com/badges/ember-scrollmagic.svg)](http://emberobserver.com/addons/ember-scrollmagic) ![Download count all time](https://img.shields.io/npm/dt/ember-scrollmagic.svg) [![npm](https://img.shields.io/npm/v/ember-scrollmagic.svg)](https://www.npmjs.com/package/ember-scrollmagic)
 ======
 
 Ember ScrollMagic is an Ember addon for using [ScrollMagic](https://github.com/janpaepke/ScrollMagic) - the javascript library for magical scroll interactions.
