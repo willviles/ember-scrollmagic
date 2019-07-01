@@ -47,16 +47,17 @@
     "scrollmagic": "^2.0.5"
   },
   "devDependencies": {
+    "bower": "^1.8.2",
     "broccoli-asset-rev": "^2.4.5",
     "ember-ajax": "^3.0.0",
     "ember-cli": "~2.17.1",
     "ember-cli-app-version": "^2.0.0",
     "ember-cli-autoprefixer": "^0.8.1",
     "ember-cli-dependency-checker": "^2.0.0",
-    "ember-cli-document-title": "^0.3.3",
+    "ember-cli-document-title": "^0.4.0",
     "ember-cli-eslint": "^4.2.1",
     "ember-cli-fastboot": "1.1.0",
-    "ember-cli-github-pages": "^0.1.2",
+    "ember-cli-github-pages": "^0.2.2",
     "ember-cli-head": "^0.3.1",
     "ember-cli-htmlbars-inline-precompile": "^1.0.0",
     "ember-cli-inject-live-reload": "^1.4.1",
@@ -81,8 +82,7 @@
     "ember-responsive": "^2.0.5",
     "ember-router-scroll": "^0.4.0",
     "ember-try": "0.2.22",
-    "loader.js": "^4.2.3",
-    "bower": "^1.8.2"
+    "loader.js": "^4.2.3"
   },
   "engines": {
     "node": "6.* || >= 7.*"
