@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col xs12 md10 lg8 l6">
         {{markdown-content
-          (get-markdown-content 'snippets' 'documentation/examples/templates/pinned-items/intro')
+          (get-markdown-content "snippets" "documentation/examples/templates/pinned-items/intro")
           extensions="prettify"}}
       </div>
     </div>
@@ -17,14 +17,14 @@
     <div class="row">
       <div class="col xs12 md10 lg8 l6">
         {{markdown-content
-          (get-markdown-content 'snippets' 'documentation/examples/templates/pinned-items/scroll-to-top')
+          (get-markdown-content "snippets" "documentation/examples/templates/pinned-items/scroll-to-top")
           extensions="prettify"}}
       </div>
     </div>
 
-    <hr /><br /><br />
+    <hr><br><br>
 
-    {{#scrollmagic-pinned triggerHook="onEnter" offset="50px" pinOptions=(hash spacerClass='scroll-top-pin-spacer')}}
+    {{#scrollmagic-pinned triggerHook="onEnter" offset="50px" pinOptions=(hash spacerClass="scroll-top-pin-spacer")}}
       <div class="row center-xs">
         {{#ui-button click=(action interactivity.pinned-items.scrollToTop)
                      bg="blue-dk" bgHover="blue" color="white" padding="sm" inline=true }}
@@ -33,24 +33,24 @@
       </div>
     {{/scrollmagic-pinned}}
 
-    <br /><br /><hr />
+    <br><br><hr>
 
   </div>
 
 {{/ui-section}}
 
-{{#ui-section padding=(hash top='md' bottom="md")}}
+{{#ui-section padding=(hash top="md" bottom="md")}}
   <div class="container">
 
     <div class="row">
       <div class="col xs12 md10 lg8 l6">
         {{markdown-content
-          (get-markdown-content 'snippets' 'documentation/examples/templates/pinned-items/navbar')
+          (get-markdown-content "snippets" "documentation/examples/templates/pinned-items/navbar")
           extensions="prettify"}}
       </div>
     </div>
 
-    <br /><br /><br /><br />
+    <br><br><br><br>
 
     {{#scrollmagic-pinned duration=900 class="pin-navigation"}}
       <div class="pinned-nav">
@@ -72,7 +72,7 @@
     {{/scrollmagic-pinned}}
 
     <article class="color-lt-gray">
-      <br /><br /><br /><br /><br /><br /><br /><br /><br />
+      <br><br><br><br><br><br><br><br><br>
       <h1 class="font-header">Content goes underneath!</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sic enim censent, oportunitatis esse beate vivere. Paulum, cum regem Persem captum adduceret, eodem flumine invectio? Idemne, quod iucunde? Duo Reges: constructio interrete. Invidiosum nomen est, infame, suspectum. Quae quo sunt excelsiores, eo dant clariora indicia naturae. Quae contraria sunt his, malane? Isto modo, ne si avia quidem eius nata non esset. Quae diligentissime contra Aristonem dicuntur a Chryippo.
@@ -99,23 +99,23 @@
     <div class="row">
       <div class="col xs12 md10 lg8 l6">
         {{markdown-content
-          (get-markdown-content 'snippets' 'documentation/examples/templates/pinned-items/fullscreen-section')
+          (get-markdown-content "snippets" "documentation/examples/templates/pinned-items/fullscreen-section")
           extensions="prettify"}}
       </div>
     </div>
 
   </div>
 
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 
-  {{#scrollmagic-pinned duration='125%' pinOptions=(hash pushFollowers=true)}}
+  {{#scrollmagic-pinned duration="125%" pinOptions=(hash pushFollowers=true)}}
     {{#ui-panel name="pin-pushfollowers" bg="blue" color="white" rounded=false}}
       <div>
-        <h3 class="font-header">I'm coming with you!</h3>
+        <h3 class="font-header">I"m coming with you!</h3>
       </div>
     {{/ui-panel}}
   {{/scrollmagic-pinned}}

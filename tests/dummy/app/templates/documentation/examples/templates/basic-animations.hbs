@@ -6,20 +6,20 @@
       <div class="row">
         <div class="col xs12 md10 lg8">
           {{markdown-content
-            (get-markdown-content 'snippets' 'documentation/examples/templates/basic-animations/intro')
+            (get-markdown-content "snippets" "documentation/examples/templates/basic-animations/intro")
             extensions="prettify"}}
         </div>
       </div>
     </div>
   {{/ui-section}}
 
-  {{#scrollmagic-animated animation='fade' triggerHook=0.9 duration='66%'}}
+  {{#scrollmagic-animated animation="fade" triggerHook=0.9 duration="66%"}}
     {{#ui-section name="animations" padding="lg" bg="lt-gray" class="prettyprint-white"}}
       <div class="container">
         <div class="row">
           <div class="col xs12 md10 lg8 l6">
             {{markdown-content
-              (get-markdown-content 'snippets' 'documentation/examples/templates/basic-animations/animations')
+              (get-markdown-content "snippets" "documentation/examples/templates/basic-animations/animations")
               extensions="prettify"}}
           </div>
         </div>
@@ -31,9 +31,9 @@
     <div class="container">
       <div class="row">
         <div class="col xs12 md10 lg8 l6">
-          {{#scrollmagic-animated reverse=false animation='fade' triggerHook=0.9 duration='66%'}}
+          {{#scrollmagic-animated reverse=false animation="fade" triggerHook=0.9 duration="66%"}}
             {{markdown-content
-              (get-markdown-content 'snippets' 'documentation/examples/templates/basic-animations/reverse')
+              (get-markdown-content "snippets" "documentation/examples/templates/basic-animations/reverse")
               extensions="prettify"}}
           {{/scrollmagic-animated}}
         </div>
@@ -41,7 +41,7 @@
     </div>
   {{/ui-section}}
 
-  {{#scrollmagic-animated animation='fade' triggerHook=0.9 duration='66%'}}
+  {{#scrollmagic-animated animation="fade" triggerHook=0.9 duration="66%"}}
     {{#ui-section name="toggle" padding="lg" bg="lt-gray" class="prettyprint-white" as | section |}}
       <div class="container">
         <div class="row">
@@ -50,11 +50,11 @@
               triggerHook=0.33
               triggerElement=section.element
               toggleElement=section.element
-              toggleClasses='bg-blue color-white prettyprint-gray'
-              toggleClassesOff='bg-lt-gray prettyprint-white'}}
+              toggleClasses="bg-blue color-white prettyprint-gray"
+              toggleClassesOff="bg-lt-gray prettyprint-white"}}
 
               {{markdown-content
-                (get-markdown-content 'snippets' 'documentation/examples/templates/basic-animations/toggle')
+                (get-markdown-content "snippets" "documentation/examples/templates/basic-animations/toggle")
                 extensions="prettify"}}
 
             {{/scrollmagic-toggle}}
@@ -70,18 +70,18 @@
       <div class="row">
         <div class="col xs12 md10 lg8 l6">
           {{#scrollmagic-animated
-            animation='fade'
-            duration='50%'
+            animation="fade"
+            duration="50%"
             triggerHook=0.8
             indicators=(hash
-              name='Check out these indicators!'
-              colorStart='#1682fc'
-              colorEnd='#1682fc'
-              colorTrigger='transparent'
+              name="Check out these indicators!"
+              colorStart="#1682fc"
+              colorEnd="#1682fc"
+              colorTrigger="transparent"
             )
           }}
             {{markdown-content
-              (get-markdown-content 'snippets' 'documentation/examples/templates/basic-animations/indicators')
+              (get-markdown-content "snippets" "documentation/examples/templates/basic-animations/indicators")
               extensions="prettify"}}
           {{/scrollmagic-animated}}
         </div>
@@ -90,7 +90,7 @@
 
   {{/ui-section}}
 
-  {{#scrollmagic-animated animation='fade' triggerHook=0.9 duration='66%'}}
+  {{#scrollmagic-animated animation="fade" triggerHook=0.9 duration="66%"}}
 
     {{#ui-section name="dynamic-properties" padding="lg" bg="dk-gray" color="white" class="prettyprint-gray"}}
       <div class="container">
@@ -98,7 +98,7 @@
         <div class="row">
           <div class="col xs12 md10 lg8 l6">
             {{markdown-content
-              (get-markdown-content 'snippets' 'documentation/examples/templates/basic-animations/dynamic-properties')
+              (get-markdown-content "snippets" "documentation/examples/templates/basic-animations/dynamic-properties")
               extensions="prettify"}}
 
             <p>
@@ -110,14 +110,14 @@
         </div>
       </div>
 
-      <br /><br /><br /><br /><br /><br />
+      <br><br><br><br><br><br>
 
       {{#scrollmagic-animated
-        animation='fly-horizontal'
+        animation="fly-horizontal"
         duration=props.durationPercentage
         triggerHook=props.triggerHook}}
         <div class="row center-xs">
-          <img src="{{rootURL}}images/ember-rocket.svg" alt="Ember Rocket" />
+          <img src="{{rootURL}}images/ember-rocket.svg" alt="Ember Rocket">
         </div>
       {{/scrollmagic-animated}}
 
@@ -129,13 +129,13 @@
       <div class="row">
         <div class="col xs12 md10 lg8 xl7">
 
-          {{#scrollmagic-animated animation='fade' triggerHook=0.9 duration='66%'}}
+          {{#scrollmagic-animated animation="fade" triggerHook=0.9 duration="66%"}}
             {{markdown-content
-              (get-markdown-content 'snippets' 'documentation/examples/templates/basic-animations/component-lifecycle')
+              (get-markdown-content "snippets" "documentation/examples/templates/basic-animations/component-lifecycle")
               extensions="prettify"}}
 
-            {{#ui-button click=(toggle 'hide' this) bg="blue" color="white" padding="sm" inline=true}}
-              {{if hide 'Show All Animations!' 'Hide All Animations!'}}
+            {{#ui-button click=(toggle "hide" this) bg="blue" color="white" padding="sm" inline=true}}
+              {{if hide "Show All Animations!" "Hide All Animations!"}}
             {{/ui-button}}
           {{/scrollmagic-animated}}
 
@@ -150,11 +150,11 @@
       <div class="row">
         <div class="col xs12 md10 lg8 l6">
           {{markdown-content
-            (get-markdown-content 'snippets' 'documentation/examples/templates/basic-animations/component-lifecycle-hidden')
+            (get-markdown-content "snippets" "documentation/examples/templates/basic-animations/component-lifecycle-hidden")
             extensions="prettify"}}
 
-          {{#ui-button click=(toggle 'hide' this) bg="blue" color="white" padding="sm" inline=true}}
-            {{if hide 'Show All Animations!' 'Hide All Animations!'}}
+          {{#ui-button click=(toggle "hide" this) bg="blue" color="white" padding="sm" inline=true}}
+            {{if hide "Show All Animations!" "Hide All Animations!"}}
           {{/ui-button}}
         </div>
       </div>
