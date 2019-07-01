@@ -4,19 +4,19 @@
     <div class="row">
       <div class="col xs12 md10 lg8 l6">
         {{markdown-content
-          (get-markdown-content 'snippets' 'documentation/examples/templates/responsive-animations/intro')
+          (get-markdown-content "snippets" "documentation/examples/templates/responsive-animations/intro")
           extensions="prettify"}}
       </div>
     </div>
 
-    <br />
-    <br />
-    <br />
-    <br />
+    <br>
+    <br>
+    <br>
+    <br>
 
     {{#scrollmagic-animated triggerHook=0.75 triggerOnMedia=(array "desktop") duration="100%" animation="fly-horizontal"}}
       <div class="row center-xs">
-        <img src="{{rootURL}}images/ember-rocket.svg" alt="Ember Rocket" />
+        <img src="{{rootURL}}images/ember-rocket.svg" alt="Ember Rocket">
       </div>
     {{/scrollmagic-animated}}
 

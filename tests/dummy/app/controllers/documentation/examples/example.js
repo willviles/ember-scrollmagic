@@ -1,5 +1,10 @@
 import Controller from '@ember/controller';
-import { default as EmberObject, computed, get, set } from '@ember/object';
+import {
+  default as EmberObject,
+  computed,
+  get,
+  set
+} from '@ember/object';
 import { readOnly } from '@ember/object/computed';
 import { inject as service } from '@ember/service';
 

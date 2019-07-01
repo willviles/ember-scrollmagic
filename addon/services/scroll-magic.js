@@ -1,7 +1,12 @@
 import Service from '@ember/service';
 import { getOwner } from '@ember/application';
 import { warn } from '@ember/debug';
-import { default as EmberObject, computed, get, set } from '@ember/object';
+import {
+  default as EmberObject,
+  computed,
+  get,
+  set
+} from '@ember/object';
 import { scheduleOnce } from '@ember/runloop';
 
 import { task, timeout } from 'ember-concurrency';

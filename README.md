@@ -5,7 +5,7 @@ Ember ScrollMagic [![Build Status](https://travis-ci.org/willviles/ember-scrollm
 
 Ember ScrollMagic is an Ember addon for using [ScrollMagic](https://github.com/janpaepke/ScrollMagic) - the javascript library for magical scroll interactions.
 
-## Installation
+[Short description of the addon.]
 
 ScrollMagic uses [GSAP (Greensock Animation Platform)](https://github.com/greensock/GreenSock-JS) for full animation tweening. Ember ScrollMagic will automatically install [Ember GSAP](https://github.com/willviles/ember-gsap) into your application.
 

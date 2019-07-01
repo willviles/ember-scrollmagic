@@ -1,4 +1,3 @@
-/* eslint-env node */
 'use strict';
 
 const BroccoliDebug = require('broccoli-debug');
@@ -8,7 +7,7 @@ const fastbootTransform = require('fastboot-transform');
 const path = require('path');
 
 module.exports = {
-  name: 'ember-scrollmagic',
+  name: require('./package').name,
 
   included(app) {
     if (typeof app.import !== 'function' && app.app) {
